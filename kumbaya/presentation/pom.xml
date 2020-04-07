@@ -15,7 +15,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <artifactId>business</artifactId>
+            <artifactId>logic</artifactId>
             <groupId>org.kumbaya.hhs</groupId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
