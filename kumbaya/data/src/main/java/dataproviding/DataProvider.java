@@ -4,9 +4,11 @@ package dataproviding;
 import com.azure.cosmos.*;
 import com.azure.cosmos.models.*;
 import com.google.common.collect.Lists;
+import datamodel.Range;
 import datamodel.SoilMeasurement;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
@@ -19,66 +21,43 @@ public class DataProvider {
 
     private CosmosAsyncClient client;
     private final String databaseName = "malawi-sensing";
-    private final String containerName = "Range";
+    private final String containerName = "SoilMeasurement";
+    private CosmosAsyncContainer container;
 
     private CosmosAsyncDatabase database;
-    private CosmosAsyncContainer container;
 
     public void close(){ client.close(); }
 
     public void connectToDB() throws Exception {
 
         ConnectionPolicy defaultPolicy = ConnectionPolicy.getDefaultPolicy();
-        defaultPolicy.setPreferredLocations(Lists.newArrayList("East US"));
+        //  Setting the preferred location to Cosmos DB Account region
+        //  West US is just an example. User should set preferred location to the Cosmos DB region closest to the application
+        defaultPolicy.setPreferredLocations(Lists.newArrayList("West US"));
 
         //  Create async client
         //  <CreateAsyncClient>
-        client = new CosmosClientBuilder()
-                .setEndpoint(EndpointUri)
-                .setKey(AuthKey)
-                .setConnectionPolicy(defaultPolicy)
-                .setConsistencyLevel(ConsistencyLevel.EVENTUAL)
-                .buildAsyncClient();
+            client = new CosmosClientBuilder()
+                    .setEndpoint(EndpointUri)
+                    .setKey(AuthKey)
+                    .setConnectionPolicy(defaultPolicy)
+                    .setConsistencyLevel(ConsistencyLevel.EVENTUAL)
+                    .buildAsyncClient();
 
-        //  </CreateAsyncClient>
+            database = client.getDatabase(databaseName);
 
-        createDatabaseIfNotExists();
-        createContainerIfNotExists();
+            container = client.getDatabase(databaseName).getContainer(containerName);
+
+
+      //  System.out.println("Reading items.");
+       // readItems();
+
+      //  System.out.println("Querying items.");
+       // queryItems();
 
     }
 
-    private void createDatabaseIfNotExists() throws Exception {
-     //   System.out.println("Create database " + databaseName + " if not exists.");
 
-        //  Create database if not exists
-        //  <CreateDatabaseIfNotExists>
-        Mono<CosmosAsyncDatabaseResponse> databaseIfNotExists = client.createDatabaseIfNotExists(databaseName);
-        databaseIfNotExists.flatMap(databaseResponse -> {
-            database = databaseResponse.getDatabase();
-            //System.out.println("Checking database " + database.getId() + " completed!\n");
-            return Mono.empty();
-        }).block();
-        //  </CreateDatabaseIfNotExists>
-    }
-
-    private void createContainerIfNotExists() throws Exception {
-      //  System.out.println("Create container " + containerName + " if not exists.");
-
-        //  Create container if not exists
-        //  <CreateContainerIfNotExists>
-
-        CosmosContainerProperties containerProperties = new CosmosContainerProperties(containerName, "/lastName");
-        Mono<CosmosAsyncContainerResponse> containerIfNotExists = database.createContainerIfNotExists(containerProperties, 400);
-
-        //  Create container with 400 RU/s
-        containerIfNotExists.flatMap(containerResponse -> {
-            container = containerResponse.getContainer();
-          //  System.out.println("Checking container " + container.getId() + " completed!\n");
-            return Mono.empty();
-        }).block();
-
-        //  </CreateContainerIfNotExists>
-    }
 
     public void readItems(Flux<SoilMeasurement> soilMeasurementToCreate) {
         //  Using partition key for point read scenarios.

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="fertilizerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.PrimaryController">
+   <children>
+      <Text fill="#fff9f9" layoutX="378.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agriculture">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="goToSoilMeasure" fitHeight="569.0" fitWidth="290.0" layoutX="55.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/soilmeasure.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="goToFertilizers" fitHeight="569.0" fitWidth="313.0" layoutX="369.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#switchToSecondary">
+         <image>
+            <Image url="@images/fertilizers.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="goToPrices" fitHeight="569.0" fitWidth="312.0" layoutX="709.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/prices.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
