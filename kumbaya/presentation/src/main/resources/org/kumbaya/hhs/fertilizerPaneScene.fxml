@@ -3,22 +3,35 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="fertilizerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.SecondaryController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="82.0" layoutX="66.0" layoutY="20.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="916.0">
+         <fill>
+            <LinearGradient endX="0.13461538461538475" endY="1.0" startX="0.1346153846153846" startY="0.6057692307692307">
+               <stops>
+                  <Stop color="#f59f2f" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <Text fill="#fff9f9" layoutX="378.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers">
          <font>
             <Font size="60.0" />
          </font>
       </Text>
-      <Text fx:id="backfromFertlizertext" fill="WHITE" layoutX="38.0" layoutY="72.0" onMouseClicked="#switchToThird" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;">
+      <Text fx:id="backfromFertlizertext" fill="WHITE" layoutY="84.0" onMouseClicked="#switchtoMain" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;" wrappingWidth="56.9765625">
          <font>
             <Font size="68.0" />
          </font>
       </Text>
-      <ImageView fx:id="goToSweetPotato" fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#goToSweetPotatoVideo">
+      <ImageView fx:id="goToSweetPotato" fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" onMouseClicked="#goToSweetPotatoVideo" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/sp.png" />
          </image>
