@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class SecondaryController extends MainViewsSwitcher {
+public class FertilizerSceneController extends MainViewsSwitcher {
 
     FertilizerVideoController fertilizerVideoController;
 
