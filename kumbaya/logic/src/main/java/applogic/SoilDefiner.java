@@ -4,32 +4,51 @@ import datamodel.Range;
 import datamodel.SoilMeasurement;
 import dataproviding.DataProvider;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SoilDefiner {
 
-    private DataProvider dataProvider;
-    private List<SoilMeasurement> measurementList = new ArrayList<>();
+    private final int pH_weight = 7;
+    private final int npk_weight = 3;
+    DecimalFormat df = new DecimalFormat("####0.00");
+    private DataProvider dataProvider = new DataProvider();
     private List<Range> rangeList = new ArrayList<>();
+    private List<Range> possibleSolutions = new ArrayList<>();
 
-
-    public void defineSoil() throws Exception {
+    public void defineSoil(String userid) throws Exception {
 
         dataProvider.connectToDB();
-        // read in data layer and put into lists -> alternatively, should I do it all in data layer?
-     //   measurementList.addAll(dataProvider.readItems();)
-        // similar with rangeList
-        dataProvider.close();
+        SoilMeasurement soilMeasurement = null;
+        // soilMeasurement = dataProvider.readSoilMeasurement(userid);
+        // get into the list
+        //  rangeList = dataProvider.readRanges();
 
-        // based on pH
-        for( SoilMeasurement soilmeasurement : measurementList ){
-            for (Range range : rangeList ){
-                if (soilmeasurement.getpHParam() <= range.getpHUpperThreshold() && soilmeasurement.getpHParam() >= range.getpHLowerThreshold())
-                    soilmeasurement.setSoiltype(range.getSoiltype());
+        double harmonic_mean = 3 / (1 / soilMeasurement.getkParam() + 1 / soilMeasurement.getnParam() + 1 / soilMeasurement.getpParam());
+        double weighted_mean = (pH_weight * soilMeasurement.getpHParam() + npk_weight * harmonic_mean) / (pH_weight + npk_weight);
+
+        for (Range range : rangeList) {
+            if (weighted_mean >= range.getMin() && weighted_mean <= range.getMax()) {
+                possibleSolutions.add(range);
             }
         }
+
+        if (possibleSolutions.size() == 1) {
+            soilMeasurement.setSoiltype(possibleSolutions.get(0).getSoiltype());
+        } else if (possibleSolutions.size() > 1) {
+            for (Range range : possibleSolutions) {
+                if (range.getMin() == weighted_mean) {
+                    soilMeasurement.setSoiltype(range.getSoiltype());
+                }
+            }
+
+        }
+        else throw new Exception();
+
+        dataProvider.close();
+
     }
-
-
 }
+
+

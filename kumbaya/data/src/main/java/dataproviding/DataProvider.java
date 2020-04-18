@@ -65,10 +65,10 @@ public class DataProvider {
     }
 
     // will return list of ranges containing ranges of 3 soiltypes
-    public void readRange(String soiltype) {
+    public void readRanges() {
         queryOptions.setPopulateQueryMetrics(true);
         CosmosAsyncContainer container = database.getContainer("Range");
-        CosmosPagedFlux<Range> pagedFluxResponse = container.queryItems("SELECT * FROM c", queryOptions, Range.class);
+        CosmosPagedFlux<Range> pagedFluxResponse = container.readAllItems(Range.class);
 
         // get pages with items and put them into a collection<T> -> will probably use hashmap
 

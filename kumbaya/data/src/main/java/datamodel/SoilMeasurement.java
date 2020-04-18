@@ -26,6 +26,17 @@ public class SoilMeasurement {
         this.kParam = kParam;
         this.pHParam = pHParam;
     }
+
+    public SoilMeasurement(String id, String userid, Calendar measureDate, double nParam, double pParam, double kParam, double pHParam) {
+        this.id = id;
+        this.userid = userid;
+        this.measureDate = measureDate;
+        this.nParam = nParam;
+        this.pParam = pParam;
+        this.kParam = kParam;
+        this.pHParam = pHParam;
+    }
+
     //endregion
 
     //region Getters
