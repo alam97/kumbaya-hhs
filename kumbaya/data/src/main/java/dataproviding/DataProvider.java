@@ -58,7 +58,10 @@ public class DataProvider {
 
         CosmosAsyncContainer container = database.getContainer("SoilMeasurement");
         queryOptions.setPopulateQueryMetrics(true);
-        CosmosPagedFlux<SoilMeasurement> pagedFluxResponse = container.queryItems(new SqlQuerySpec("SELECT * FROM c WHERE c.userid=@userid",
+        CosmosPagedFlux<SoilMeasurement> pagedFluxResponse = container.queryItems(new SqlQuerySpec("SELECT TOP 1 c.measureDate FROM c\n" +
+                "WHERE c.userid=@userid" +
+                "AND c.measureDate <= GetCurrentDateTime()\n" +
+                "ORDER BY c.measureDate DESC\n",
                                                                             new SqlParameterList(new SqlParameter("@userid", userid))), queryOptions, SoilMeasurement.class);
 
         // get pages with items and put them into a collection<T> -> will probably use hashmap
@@ -76,9 +79,7 @@ public class DataProvider {
 
     //LAST Updated
     public void readPrice(){
-        String query = "SELECT TOP 1 updateDate FROM Price ORDER BY ABS(DATEDIFF(updateDate, GETDATE())) ASC";
         CosmosAsyncContainer container = database.getContainer("Price");
-
         // what's the difference between query and read?
         CosmosPagedFlux<Price> pagedFluxResponse = container.readAllItems(Price.class);
 
