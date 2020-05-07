@@ -3,42 +3,31 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.MainSceneController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" layoutX="54.0" layoutY="20.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="957.0">
-         <fill>
-            <LinearGradient endX="0.13461538461538475" endY="1.0" startX="0.1346153846153846" startY="0.6057692307692307">
-               <stops>
-                  <Stop color="#f59f2f" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Text fill="#fff9f9" layoutX="365.0" layoutY="80.0" stroke="#f59f2f" strokeType="OUTSIDE" strokeWidth="2.0" text="Agriculture">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
+      <Text fill="#fff9f9" layoutX="369.0" layoutY="72.0" stroke="#f59f2f" strokeType="OUTSIDE" strokeWidth="2.0" text="Agriculture">
          <font>
             <Font size="60.0" />
          </font>
       </Text>
-      <ImageView fx:id="goToSoilMeasure" fitHeight="569.0" fitWidth="290.0" layoutX="55.0" layoutY="109.0" pickOnBounds="true" onMouseClicked="#switchToSoilMeasurement" preserveRatio="true">
+      <ImageView fx:id="goToSoilMeasure" fitHeight="569.0" fitWidth="331.0" layoutX="55.0" layoutY="121.0" onMouseClicked="#switchToSoilMeasurement" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/soilmeasure.jpg" />
+            <Image url="@images/box_soil_measure.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="goToFertilizers" fitHeight="569.0" fitWidth="313.0" layoutX="369.0" layoutY="109.0" onMouseClicked="#switchToSecondary" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToFertilizers" fitHeight="569.0" fitWidth="313.0" layoutX="378.0" layoutY="121.0" onMouseClicked="#switchToSecondary" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/fertilizers.jpg" />
+            <Image url="@images/box_fertilizers.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="goToPrices" fitHeight="569.0" fitWidth="312.0" layoutX="709.0" layoutY="109.0" pickOnBounds="true" onMouseClicked="#switchToPrices" preserveRatio="true">
+      <ImageView fx:id="goToPrices" fitHeight="569.0" fitWidth="313.0" layoutX="700.0" layoutY="122.0" onMouseClicked="#switchToPrices" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/prices.jpg" />
+            <Image url="@images/box_prices.png" />
          </image>
       </ImageView>
    </children>

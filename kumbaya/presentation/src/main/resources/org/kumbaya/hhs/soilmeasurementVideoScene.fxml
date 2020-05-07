@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -10,31 +10,22 @@
 
 <AnchorPane fx:id="SoilMeasurementPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.SoilMeasurementVideoController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="82.0" layoutX="66.0" layoutY="20.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" width="916.0">
-         <fill>
-            <LinearGradient endX="0.13461538461538475" endY="1.0" startX="0.1346153846153846" startY="0.6057692307692307">
-               <stops>
-                  <Stop color="#f59f2f" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Text fill="#fff9f9" layoutX="254.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soil Measurement">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
+      <Text fill="#fff9f9" layoutX="261.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Soil Measurement">
          <font>
             <Font size="60.0" />
          </font>
       </Text>
-      <Text fx:id="backfromSoilMeasurement" fill="WHITE" layoutY="77.0" onMouseClicked="#switchtoMain" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;" wrappingWidth="56.9765625">
-         <font>
-            <Font size="68.0" />
-         </font>
-      </Text>
-      <WebView fx:id="deviceVideoWebView" layoutX="130.0" layoutY="139.0" prefHeight="457.0" prefWidth="788.0" />
-      <Text fx:id="goToMeasuring" fill="WHITE" layoutX="926.0" layoutY="685.0" onMouseClicked="#switchtoMain" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;" wrappingWidth="99.9765625">
-         <font>
-            <Font size="96.0" />
-         </font>
-      </Text>
+      <WebView fx:id="deviceVideoWebView" layoutX="131.0" layoutY="172.0" prefHeight="457.0" prefWidth="788.0" />
+      <ImageView fx:id="homeButton" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/home_button.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backButton" fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/back_button.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

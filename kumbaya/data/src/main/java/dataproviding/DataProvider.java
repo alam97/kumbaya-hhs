@@ -9,6 +9,11 @@ import com.azure.cosmos.models.SqlQuerySpec;
 import datamodel.Price;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
+import reactor.core.publisher.Flux;
+
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.stream.Collectors;
 
 public class DataProvider {
 
@@ -43,6 +48,7 @@ public class DataProvider {
             }
 
             database = client.getDatabase(databaseName);
+            readRanges();
 
     }
 
@@ -69,21 +75,55 @@ public class DataProvider {
 
     // will return list of ranges containing ranges of 3 soiltypes
     public void readRanges() {
+        FeedOptions queryOptions = new FeedOptions();
         queryOptions.setPopulateQueryMetrics(true);
         CosmosAsyncContainer container = database.getContainer("Range");
-        CosmosPagedFlux<Range> pagedFluxResponse = container.readAllItems(Range.class);
+        CosmosPagedFlux<Range> pagedFluxResponse = container.queryItems("SELECT * FROM c", queryOptions, Range.class);
+        final CountDownLatch completionLatch = new CountDownLatch(1);
 
-        // get pages with items and put them into a collection<T> -> will probably use hashmap
+        List<Range> rangeList;
+        pagedFluxResponse.byPage().subscribe(
+                fluxResponse -> {
+                    System.out.println("trying to query" +
+                            fluxResponse.getResults().size() + " items(s)"
+                            + " and request charge of " + fluxResponse.getRequestCharge());
 
+                    System.out.println("Item Ids " + fluxResponse
+                            .getResults()
+                            .stream()
+                            .map(Range::getId)
+                            .collect(Collectors.toList()));
+                },
+                err -> {
+                    if (err instanceof CosmosClientException) {
+                        //Client-specific errors
+                        CosmosClientException cerr = (CosmosClientException) err;
+                        cerr.printStackTrace();
+                        System.out.println((String.format("Read Item failed with %s\n", cerr)));
+                    } else {
+                        //General errors
+                        err.printStackTrace();
+                    }
+
+                    completionLatch.countDown();
+                },
+                () -> {
+                    completionLatch.countDown();
+                }
+        );
+
+        try {
+            completionLatch.await();
+        } catch (InterruptedException err) {
+            throw new AssertionError("Unexpected Interruption", err);
+        }
     }
 
     //LAST Updated
     public void readPrice(){
         CosmosAsyncContainer container = database.getContainer("Price");
         // what's the difference between query and read?
-        CosmosPagedFlux<Price> pagedFluxResponse = container.readAllItems(Price.class);
-
-        // get pages with items and put them into a collection<T> -> will probably use hashmap
+        Flux<Price> priceFlux;
 
     }
 
