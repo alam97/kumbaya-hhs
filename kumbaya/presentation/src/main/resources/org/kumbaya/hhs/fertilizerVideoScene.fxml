@@ -8,21 +8,21 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="videoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.FertilizerVideoController">
+<AnchorPane fx:id="videoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.FertilizerVideoController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" layoutY="1.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
-      <Text fx:id="fertilizerVideoTitle" fill="#fff9f9" layoutX="378.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers" wrappingWidth="293.96484375">
+      <Text fx:id="fertilizerVideoTitle" fill="#fff9f9" layoutX="242.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers" textAlignment="CENTER" wrappingWidth="564.96484375">
          <font>
             <Font size="60.0" />
          </font>
       </Text>
       <WebView fx:id="fertilizerWebView" layoutX="65.0" layoutY="117.0" prefHeight="578.0" prefWidth="918.0" />
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homeButton" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/home_button.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backButton" fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#goBackToFertilizers" onTouchPressed="#goBackToFertilizers" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/back_button.png" />
          </image>

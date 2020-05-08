@@ -4,7 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebView;
 
+import java.io.IOException;
+
 public class FertilizerVideoController extends MainViewsSwitcher {
+
+    @FXML
+    private void goBackToFertilizers() throws IOException {
+        App.setRoot("fertilizerPaneScene");
+    }
 
     @FXML
     private String videoLink;

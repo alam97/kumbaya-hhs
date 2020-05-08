@@ -7,7 +7,7 @@ import java.io.IOException;
 public class MainSceneController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
+    private void switchToFertilizers() throws IOException {
         App.setRoot("fertilizerPaneScene");
     }
 
@@ -18,6 +18,6 @@ public class MainSceneController {
 
     @FXML
     private void switchToSoilMeasurement() throws IOException{
-        App.setRoot("soilmeasurementVideoScene");
+        App.setRoot("soilmeasurementScene");
     }
 }

@@ -20,7 +20,7 @@
             <Image url="@images/box_soil_measure.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="goToFertilizers" fitHeight="569.0" fitWidth="313.0" layoutX="378.0" layoutY="121.0" onMouseClicked="#switchToSecondary" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="goToFertilizers" fitHeight="569.0" fitWidth="313.0" layoutX="378.0" layoutY="121.0" onMouseClicked="#switchToFertilizers" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/box_fertilizers.png" />
          </image>

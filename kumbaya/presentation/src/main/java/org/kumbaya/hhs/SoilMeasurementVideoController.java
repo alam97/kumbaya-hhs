@@ -3,8 +3,14 @@ package org.kumbaya.hhs;
 import javafx.fxml.FXML;
 import javafx.scene.web.WebView;
 
+import java.io.IOException;
+
 public class SoilMeasurementVideoController extends MainViewsSwitcher {
 
+    @FXML
+    private void goBacktoSoilMeasurement() throws IOException {
+        App.setRoot("soilmeasurementScene");
+    }
 
     @FXML
     private WebView deviceVideoWebView;

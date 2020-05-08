@@ -17,12 +17,12 @@
          </font>
       </Text>
       <WebView fx:id="deviceVideoWebView" layoutX="131.0" layoutY="172.0" prefHeight="457.0" prefWidth="788.0" />
-      <ImageView fx:id="homeButton" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homeButton" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain">
          <image>
             <Image url="@images/home_button.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="backButton" fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backButton" fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true"  onMouseClicked="#goBacktoSoilMeasurement" onTouchPressed="#goBacktoSoilMeasurement" >
          <image>
             <Image url="@images/back_button.png" />
          </image>
