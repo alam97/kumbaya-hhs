@@ -5,17 +5,12 @@ import com.azure.data.cosmos.*;
 import com.azure.data.cosmos.sync.CosmosSyncClient;
 import com.azure.data.cosmos.sync.CosmosSyncContainer;
 import com.azure.data.cosmos.sync.CosmosSyncDatabase;
-import datamodel.Price;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
-import reactor.core.publisher.Flux;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.stream.Collectors;
 
 public class DataProvider {
 
@@ -33,9 +28,6 @@ public class DataProvider {
 
     public void connectToDB() {
         ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPolicy();
-        // defaultPolicy.setPreferredLocations(Lists.newArrayList("West US"));
-
-        // maybe make it runnable?
         client = new CosmosClientBuilder()
                 .endpoint(EndpointUri)
                 .key(AuthKey)
@@ -44,40 +36,28 @@ public class DataProvider {
                 .buildSyncClient();
 
         database = client.getDatabase(databaseName);
-        List<Range> rangeList = readRanges();
-
-        rangeList.forEach(range -> {
-            System.out.println(range.getSoiltype());
-        });
 
     }
-
     //endregion
 
-    //region C.R.U.D.
 
-    //region READ
-
-    // return data types needs to be decided
-
-    public void readSoilMeasurement(String userid) {
-
-   /*     CosmosAsyncContainer container = database.getContainer("SoilMeasurement");
-        queryOptions.setPopulateQueryMetrics(true);
-        CosmosPagedFlux<SoilMeasurement> pagedFluxResponse = container.queryItems(new SqlQuerySpec("SELECT TOP 1 c.measureDate FROM c\n" +
-                "WHERE c.userid=@userid" +
-                "AND c.measureDate <= GetCurrentDateTime()\n" +
-                "ORDER BY c.measureDate DESC\n",
-                                                                            new SqlParameterList(new SqlParameter("@userid", userid))), queryOptions, SoilMeasurement.class);
-*/
-        // get pages with items and put them into a collection<T> -> will probably use hashmap
+    public SoilMeasurement readSoilMeasurement(String userid) {
+        List<SoilMeasurement> measurements = new ArrayList<>();
+        queryOptions.populateQueryMetrics(true);
+        CosmosSyncContainer container = database.getContainer("SoilMeasurement");
+        String query = "SELECT TOP 1 * FROM c WHERE c.userid=" + "'" + userid +"'" + " AND c.measureDate <= GetCurrentDateTime() ORDER BY c.measureDate DESC";
+        Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems(query, queryOptions);
+        responseIterator.forEachRemaining( response -> {
+            response.results().forEach( item -> {
+                SoilMeasurement sm = new SoilMeasurement(item.getString("id"), item.getString("userid"), item.getString("measureDate"), item.getDouble("nParam"), item.getDouble("pParam"), item.getDouble("kParam"), item.getDouble("pHParam"));
+                measurements.add(sm);
+            });
+        });
+        return measurements.get(0);
     }
 
-    // will return list of ranges containing ranges of 3 soiltypes
     public List<Range> readRanges() {
-        List<Range> ranges = new ArrayList<Range>();
-
-        FeedOptions queryOptions = new FeedOptions();
+        List<Range> ranges = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
         CosmosSyncContainer container = database.getContainer("Range");
 
@@ -86,63 +66,15 @@ public class DataProvider {
         responseIterator.forEachRemaining(response -> {
             response.results().forEach(item -> {
                 Range tmpRange = new Range(item.getInt("id"), item.getString("soiltype"), item.getDouble("min"), item.getDouble("max"));
-
-                System.out.println("Get range with id: " + tmpRange.getId());
                 ranges.add(tmpRange);
             });
         });
-
         return ranges;
-
-/*        CosmosPagedFlux<Range> pagedFluxResponse = container.queryItems("SELECT * FROM c", queryOptions, Range.class);
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-
-        List<Range> rangeList;
-        pagedFluxResponse.byPage().subscribe(
-                fluxResponse -> {
-                    System.out.println("trying to query" +
-                            fluxResponse.getResults().size() + " items(s)"
-                            + " and request charge of " + fluxResponse.getRequestCharge());
-
-                    System.out.println("Item Ids " + fluxResponse
-                            .getResults()
-                            .stream()
-                            .map(Range::getId)
-                            .collect(Collectors.toList()));
-                },
-                err -> {
-                    if (err instanceof CosmosClientException) {
-                        //Client-specific errors
-                        CosmosClientException cerr = (CosmosClientException) err;
-                        cerr.printStackTrace();
-                        System.out.println((String.format("Read Item failed with %s\n", cerr)));
-                    } else {
-                        //General errors
-                        err.printStackTrace();
-                    }
-
-                    completionLatch.countDown();
-                },
-                () -> {
-                    completionLatch.countDown();
-                }
-        );
-
-        try {
-            completionLatch.await();
-        } catch (InterruptedException err) {
-            throw new AssertionError("Unexpected Interruption", err);
-        }*/
     }
 
-    //LAST Updated
     public void readPrice(){
-/*
-        CosmosAsyncContainer container = database.getContainer("Price");
-        // what's the difference between query and read?
-        Flux<Price> priceFlux;
-*/
 
+        /* To be Implemented in the future */
     }
 
 
@@ -152,12 +84,14 @@ public class DataProvider {
 
     // will take String value and userid
     public void updateSoilType(String userid, String soiltype){
-
         String query = "UPDATE SoilMeasurement SET soiltype=" + "'" + soiltype + "' WHERE userid=" + "'" + userid + "'";
-
+        queryOptions.populateQueryMetrics(true);
+        CosmosSyncContainer container = database.getContainer("SoilMeasurement");
+        // upsert
     }
     //endregion
 
     //endregion
+
 
 }

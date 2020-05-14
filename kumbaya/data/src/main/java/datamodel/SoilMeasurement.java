@@ -1,13 +1,11 @@
 package datamodel;
 
-import java.util.Calendar;
-
 public class SoilMeasurement {
 
     //region Fields
     private String id;
     private String userid;
-    private Calendar measureDate;
+    private String measureDate;
     private String soiltype;
     private double nParam;
     private double pParam;
@@ -16,7 +14,7 @@ public class SoilMeasurement {
     //endregion
 
     //region Constructors
-    public SoilMeasurement(String id, String userid, Calendar measureDate, String soiltype, double nParam, double pParam, double kParam, double pHParam) {
+    public SoilMeasurement(String id, String userid, String measureDate, String soiltype, double nParam, double pParam, double kParam, double pHParam) {
         this.id = id;
         this.userid = userid;
         this.measureDate = measureDate;
@@ -27,7 +25,7 @@ public class SoilMeasurement {
         this.pHParam = pHParam;
     }
 
-    public SoilMeasurement(String id, String userid, Calendar measureDate, double nParam, double pParam, double kParam, double pHParam) {
+    public SoilMeasurement(String id, String userid, String measureDate, double nParam, double pParam, double kParam, double pHParam) {
         this.id = id;
         this.userid = userid;
         this.measureDate = measureDate;
@@ -48,7 +46,7 @@ public class SoilMeasurement {
         return userid;
     }
 
-    public Calendar getMeasureDate() {
+    public String getMeasureDate() {
         return measureDate;
     }
 
@@ -83,7 +81,7 @@ public class SoilMeasurement {
         this.userid = userid;
     }
 
-    public void setMeasureDate(Calendar measureDate) {
+    public void setMeasureDate(String measureDate) {
         this.measureDate = measureDate;
     }
 
