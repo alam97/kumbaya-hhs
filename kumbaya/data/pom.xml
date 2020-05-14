@@ -31,11 +31,11 @@
         </plugins>
     </build>
 <dependencies>
-    <dependency>
+   <!-- <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-cosmos</artifactId>
         <version>4.0.1-beta.1</version>
-    </dependency>
+    </dependency>-->
     <dependency>
         <groupId>javax.json</groupId>
         <artifactId>javax.json-api</artifactId>
@@ -48,8 +48,8 @@
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-documentdb</artifactId>
-        <version>1.9.1</version>
+        <artifactId>azure-cosmos</artifactId>
+        <version>3.7.2</version>
     </dependency>
 </dependencies>
 
