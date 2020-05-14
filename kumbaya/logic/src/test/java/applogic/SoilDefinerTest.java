@@ -1,25 +1,21 @@
 package applogic;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 class SoilDefinerTest {
 
-    // works with hardcoded data
-/*
+
     @Test
-    public void soilDefiningTest(){
-        Calendar calendar = GregorianCalendar.getInstance();
-        calendar.set(2020, 4, 18);
-        SoilMeasurement soilMeasurement = new SoilMeasurement("1", "123", calendar, 20, 40, 234, 5.8);
+    private void soilDefiningTest(){
         SoilDefiner soilDefiner = new SoilDefiner();
+        String output = null;
         try {
-           soilDefiner.defineSoil(soilMeasurement);
+           output = soilDefiner.defineSoil("user1");
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-
-        Assertions.assertEquals("High", soilMeasurement.getSoiltype());
+        Assertions.assertEquals("High", output);
     }
-
-    */
-
 }

@@ -17,13 +17,11 @@ public class SoilDefiner {
     private List<Range> rangeList = new ArrayList<>();
     private List<Range> possibleSolutions = new ArrayList<>();
 
-    public void defineSoil(String userid) throws Exception {
+    public String defineSoil(String userid) throws Exception {
 
         dataProvider.connectToDB();
-        SoilMeasurement soilMeasurement = null;
-        // soilMeasurement = dataProvider.readSoilMeasurement(userid);
-        // get into the list
-        //  rangeList = dataProvider.readRanges();
+        SoilMeasurement soilMeasurement = dataProvider.readSoilMeasurement(userid);
+        rangeList = dataProvider.readRanges();
 
         double harmonic_mean = 3 / (1 / soilMeasurement.getkParam() + 1 / soilMeasurement.getnParam() + 1 / soilMeasurement.getpParam());
         double weighted_mean = (pH_weight * soilMeasurement.getpHParam() + npk_weight * harmonic_mean) / (pH_weight + npk_weight);
@@ -45,9 +43,8 @@ public class SoilDefiner {
 
         }
         else throw new Exception();
-
         dataProvider.close();
-
+        return soilMeasurement.getSoiltype();
     }
 }
 
