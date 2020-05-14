@@ -51,6 +51,12 @@
         <artifactId>azure-cosmos</artifactId>
         <version>3.7.2</version>
     </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>RELEASE</version>
+        <scope>test</scope>
+    </dependency>
 </dependencies>
 
 </project>
