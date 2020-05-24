@@ -13,6 +13,6 @@ public class SoilMeasurementSceneController extends MainViewsSwitcher {
 
     @FXML
     private void goToMeasurement() throws IOException{
-        App.setRoot("soilmeasurementVideoScene");
+        App.setRoot("measurementTransitionScene");
     }
 }

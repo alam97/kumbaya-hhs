@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.SoilMeasurementSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.SoilMeasurementSceneController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
       <Text fill="#fff9f9" layoutX="343.0" layoutY="74.0" stroke="#f59f2f" strokeType="OUTSIDE" strokeWidth="2.0" text="Soil Measure">
@@ -15,25 +15,19 @@
             <Font size="60.0" />
          </font>
       </Text>
-      <ImageView fx:id="backButton" fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-         <image>
+      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/back_button.png" />
-         </image>
       </ImageView>
-      <ImageView fx:id="homeButton" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/home_button.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="soilMeasurementVideoPane" fitHeight="507.0" fitWidth="471.0" layoutX="71.0" layoutY="132.0" onMouseClicked="#goToVideo" onTouchPressed="#goToVideo" pickOnBounds="true" preserveRatio="true">
-         <image>
+      <ImageView fitHeight="507.0" fitWidth="471.0" layoutX="71.0" layoutY="132.0" onMouseClicked="#goToVideo" onTouchPressed="#goToVideo" pickOnBounds="true" preserveRatio="true">
             <Image url="@images/box_video.png" />
-         </image>
       </ImageView>
-      <ImageView fx:id="measurePane" fitHeight="507.0" fitWidth="471.0" layoutX="550.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true"  onMouseClicked="#goToVideo" onTouchPressed="#goToVideo" >
-         <image>
+      <ImageView fitHeight="507.0" fitWidth="471.0" layoutX="550.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true"  onMouseClicked="#goToMeasurement" onTouchPressed="#goToMeasurement" >
             <Image url="@images/box_measurement.png" />
-         </image>
       </ImageView>
    </children>
 </AnchorPane>
