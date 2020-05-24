@@ -3,8 +3,6 @@ package applogic;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
 import dataproviding.DataProvider;
-
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +10,6 @@ public class SoilDefiner {
 
     private final int pH_weight = 7;
     private final int npk_weight = 3;
-    DecimalFormat df = new DecimalFormat("####0.00");
     private DataProvider dataProvider = new DataProvider();
     private List<Range> rangeList = new ArrayList<>();
     private List<Range> possibleSolutions = new ArrayList<>();
