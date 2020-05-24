@@ -4,10 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class SoilDefinerTest {
-
-
     @Test
-    private void soilDefiningTest(){
+    public void soilDefiningTest(){
         SoilDefiner soilDefiner = new SoilDefiner();
         String output = null;
         try {
