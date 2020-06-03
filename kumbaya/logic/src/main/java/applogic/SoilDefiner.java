@@ -40,6 +40,7 @@ public class SoilDefiner {
 
         }
         else throw new Exception();
+        dataProvider.updateSoilType(soilMeasurement);
         dataProvider.close();
         return soilMeasurement.getSoiltype();
     }
