@@ -14,6 +14,6 @@ class SoilDefinerTest {
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-        Assertions.assertEquals("High", output);
+        Assertions.assertEquals("Medium", output);
     }
 }
