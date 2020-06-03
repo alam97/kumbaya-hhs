@@ -2,14 +2,17 @@ package org.kumbaya.hhs;
 
 import applogic.SoilDefiner;
 import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
 public class SoilMeasurementTransitionController extends MainViewsSwitcher {
 
     // will be the measurement changing view once the design is complete
 
-  /*  @FXML
-    private void initialize() throws Exception {
-        System.out.println("Test");
+    @FXML
+    Text typeofSoil;
+
+    @FXML
+    private void initialize() {
         setText();
     }
 
@@ -22,8 +25,7 @@ public class SoilMeasurementTransitionController extends MainViewsSwitcher {
         catch (Exception e){
             e.printStackTrace();
         }
-        System.out.println(output);
-    }*/
-
+        typeofSoil.setText(output);
+    }
 
 }

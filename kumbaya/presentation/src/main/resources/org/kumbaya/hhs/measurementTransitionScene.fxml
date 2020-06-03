@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.SoilMeasurementTransitionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.SoilMeasurementTransitionController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
       <Text fill="#fff9f9" layoutX="343.0" layoutY="74.0" stroke="#f59f2f" strokeType="OUTSIDE" strokeWidth="2.0" text="Soil Measure">
@@ -15,16 +13,10 @@
             <Font size="60.0" />
          </font>
       </Text>
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../../kumbaya-hhs/kumbaya/presentation/src/main/resources/org/kumbaya/hhs/images/back_button.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../../../../../../../../kumbaya-hhs/kumbaya/presentation/src/main/resources/org/kumbaya/hhs/images/home_button.png" />
-      </ImageView>
-      <ImageView fitHeight="507.0" fitWidth="471.0" layoutX="319.0" layoutY="159.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../../../../../../../../../kumbaya-hhs/kumbaya/presentation/src/main/resources/org/kumbaya/hhs/images/box_measurement.png" />
-      </ImageView>
+      <Text fx:id="typeofSoil" fill="#fff9f9" layoutX="343.0" layoutY="330.0" stroke="#f59f2f" strokeType="OUTSIDE" strokeWidth="2.0">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
