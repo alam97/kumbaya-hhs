@@ -81,13 +81,10 @@ public class DataProvider {
     //endregion
 
     //region UPDATE
-
-    // will take String value and userid
-    public void updateSoilType(String userid, String soiltype){
-        String query = "UPDATE SoilMeasurement SET soiltype=" + "'" + soiltype + "' WHERE userid=" + "'" + userid + "'";
+    public void updateSoilType(SoilMeasurement soilMeasurement) throws Exception{
         queryOptions.populateQueryMetrics(true);
         CosmosSyncContainer container = database.getContainer("SoilMeasurement");
-        // upsert
+        container.upsertItem(soilMeasurement);
     }
     //endregion
 
