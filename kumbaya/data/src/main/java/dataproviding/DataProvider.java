@@ -12,14 +12,16 @@ import datamodel.SoilMeasurement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class DataProvider {
 
     //region Fields
-    private final String EndpointUri = "https://malawi-sensing.documents.azure.com:443/";
-    private final String AuthKey = "yBWJ4Nmp8e6WpfY7jFrgdGQ1DdbonOKebQ5M6M1bvpT44tKprKCTZqvbBW2GpNvbru2wKn3vYOxZBbFgBXw2ZQ==";
+    ResourceBundle bundle = ResourceBundle.getBundle("databasekeys");
+    private final String EndpointUri = bundle.getString("endpoint");
+    private final String AuthKey = bundle.getString("key");
     private CosmosSyncClient client;
-    private final String databaseName = "KumbayaSensing";
+    private final String databaseName = bundle.getString("databaseName");
     private CosmosSyncDatabase database;
     private FeedOptions queryOptions = new FeedOptions();
     //endregion
