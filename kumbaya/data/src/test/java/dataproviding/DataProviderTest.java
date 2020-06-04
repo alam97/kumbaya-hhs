@@ -1,5 +1,6 @@
 package dataproviding;
 
+import datamodel.Price;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
 import org.junit.jupiter.api.Assertions;
@@ -25,5 +26,14 @@ class DataProviderTest {
         List<Range> ranges = dataProvider.readRanges();
         dataProvider.close();
         Assertions.assertEquals(3, ranges.size());
+    }
+
+    @Test
+    void readPrices(){
+        DataProvider dataProvider = new DataProvider();
+        dataProvider.connectToDB();
+        List<Price> prices = dataProvider.readPrice();
+        dataProvider.close();
+        Assertions.assertEquals(2, prices.get(0).getId());
     }
 }
