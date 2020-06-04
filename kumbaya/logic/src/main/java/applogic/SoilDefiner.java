@@ -8,17 +8,17 @@ import java.util.List;
 
 public class SoilDefiner {
 
+    private DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
     private final int pH_weight = 7;
     private final int npk_weight = 3;
-    private DataProvider dataProvider = new DataProvider();
-    private List<Range> rangeList = new ArrayList<>();
+        private List<Range> rangeList = new ArrayList<>();
     private List<Range> possibleSolutions = new ArrayList<>();
 
     public String defineSoil(String userid) throws Exception {
 
-        dataProvider.connectToDB();
-        SoilMeasurement soilMeasurement = dataProvider.readSoilMeasurement(userid);
-        rangeList = dataProvider.readRanges();
+        dataLogicProvider.connectToDB();
+        SoilMeasurement soilMeasurement = dataLogicProvider.readSoilMeasurement(userid);
+        rangeList = dataLogicProvider.readRanges();
 
         double harmonic_mean = 3 / (1 / soilMeasurement.getkParam() + 1 / soilMeasurement.getnParam() + 1 / soilMeasurement.getpParam());
         double weighted_mean = (pH_weight * soilMeasurement.getpHParam() + npk_weight * harmonic_mean) / (pH_weight + npk_weight);
@@ -40,8 +40,8 @@ public class SoilDefiner {
 
         }
         else throw new Exception();
-        dataProvider.updateSoilType(soilMeasurement);
-        dataProvider.close();
+        dataLogicProvider.updateSoilType(soilMeasurement);
+        dataLogicProvider.close();
         return soilMeasurement.getSoiltype();
     }
 }
