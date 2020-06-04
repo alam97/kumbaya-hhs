@@ -7,14 +7,14 @@ public class Price {
 
     //region Fields
     private int id;
-    private Date updateDate;
+    private String updateDate;
     private double sweetpotatoPrice;
     private double maizePrice;
     private double soybeanPrice;
     //endregion
 
     //region Contructors
-    public Price(int id, Date updateDate, double sweetpotatoPrice, double maizePrice, double soybeanPrice) {
+    public Price(int id, String updateDate, double sweetpotatoPrice, double maizePrice, double soybeanPrice) {
         this.id = id;
         this.updateDate = updateDate;
         this.sweetpotatoPrice = sweetpotatoPrice;
@@ -28,7 +28,7 @@ public class Price {
         return id;
     }
 
-    public Date getUpdateDate() {
+    public String getUpdateDate() {
         return updateDate;
     }
 
@@ -50,7 +50,7 @@ public class Price {
         this.id = id;
     }
 
-    public void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
 
