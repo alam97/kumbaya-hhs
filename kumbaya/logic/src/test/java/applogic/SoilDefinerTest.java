@@ -1,5 +1,6 @@
 package applogic;
 
+import datamodel.Fertilizer;
 import datamodel.Price;
 import dataproviding.DataProvider;
 import org.junit.jupiter.api.Assertions;
@@ -29,5 +30,14 @@ class SoilDefinerTest {
         List<Price> prices = dataLogicProvider.readPrice();
         dataLogicProvider.close();
         Assertions.assertEquals(2, prices.get(0).getId());
+    }
+
+    @Test
+    void readFertilizers(){
+        DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
+        dataLogicProvider.connectToDB();
+        List<Fertilizer> fertilizers = dataLogicProvider.readFertilizer("Soybean");
+        dataLogicProvider.close();
+        Assertions.assertEquals("DAP", fertilizers.get(0).getName());
     }
 }
