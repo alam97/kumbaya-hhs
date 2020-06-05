@@ -15,19 +15,19 @@
          </font>
       </Text>
       <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-                <Image url="@images/back_button.png" />
+                <Image url="@../images/back_button.png" />
              </ImageView>
       <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@images/home_button.png" />
+                     <Image url="@../images/home_button.png" />
                </ImageView>
       <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@images/box_sweet_potato.png" />
+                     <Image url="@../images/box_sweet_potato.png" />
                </ImageView>
       <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="387.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@images/box_maize.png" />
+                     <Image url="@../images/box_maize.png" />
                </ImageView>
       <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="708.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@images/box_soybeans.png" />
+                     <Image url="@../images/box_soybeans.png" />
                </ImageView>
       <Text fx:id="SweetPotatoPrice" fill="#f9a42f" layoutX="178.0" layoutY="602.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
          <font>

@@ -11,13 +11,15 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.FertilizerVideoController">
          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" layoutY="1.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
       <Text fill="#fff9f9" layoutX="242.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers" textAlignment="CENTER" wrappingWidth="564.96484375">
-               <Font size="60.0" />
+              <font>
+                  <Font size="60.0" />
+              </font>
          </Text>
       <WebView fx:id="fertilizerWebView" layoutX="65.0" layoutY="117.0" prefHeight="578.0" prefWidth="918.0" />
       <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
-                 <Image url="@images/home_button.png" />
+                 <Image url="@../images/home_button.png" />
       </ImageView>
       <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#goBackToFertilizers" onTouchPressed="#goBackToFertilizers" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/back_button.png" />
+            <Image url="@../images/back_button.png" />
       </ImageView>
 </AnchorPane>

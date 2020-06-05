@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.MainSceneController">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
+      <Text fill="#fff9f9" layoutX="369.0" layoutY="72.0" stroke="#f59f2f" strokeType="OUTSIDE" strokeWidth="2.0" text="Agriculture">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="569.0" fitWidth="331.0" layoutX="55.0" layoutY="121.0" onMouseClicked="#switchToSoilMeasurement" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/box_soil_measure.png" />
+               </ImageView>
+      <ImageView fitHeight="569.0" fitWidth="313.0" layoutX="378.0" layoutY="121.0" onMouseClicked="#switchToFertilizers" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/box_fertilizers.png" />
+               </ImageView>
+      <ImageView fitHeight="569.0" fitWidth="313.0" layoutX="700.0" layoutY="122.0" onMouseClicked="#switchToPrices" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/box_prices.png" />
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="291.0" layoutY="611.0" onMouseClicked="#playMeasurement" onTouchPressed="#playMeasurement" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/speaker_button.png" />
+               </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="614.0" layoutY="611.0" onMouseClicked="#playFertilizers" onTouchPressed="#playFertilizers" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/speaker_button.png" />
+               </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="937.0" layoutY="611.0" onMouseClicked="#playPrices" onTouchPressed="#playPrices" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/speaker_button.png" />
+               </ImageView>
+</AnchorPane>
