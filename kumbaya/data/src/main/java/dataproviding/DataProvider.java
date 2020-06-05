@@ -5,6 +5,7 @@ import com.azure.data.cosmos.*;
 import com.azure.data.cosmos.sync.CosmosSyncClient;
 import com.azure.data.cosmos.sync.CosmosSyncContainer;
 import com.azure.data.cosmos.sync.CosmosSyncDatabase;
+import datamodel.Fertilizer;
 import datamodel.Price;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
@@ -91,6 +92,24 @@ public class DataProvider {
         return prices;
 
     }
+
+
+    public List<Fertilizer> readFertilizer(String croptype){
+        List<Fertilizer> fertilizers = new ArrayList<>();
+        queryOptions.populateQueryMetrics(true);
+        CosmosSyncContainer container = database.getContainer("Fertilizer");
+        String query = "SELECT * FROM c WHERE c.croptype=" + "'" + croptype +"'";
+        Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems(query, queryOptions);
+        responseIterator.forEachRemaining( response -> {
+            response.results().forEach( item -> {
+                Fertilizer f = new Fertilizer(item.getInt("id"), item.getString("croptype"), item.getString("name"));
+                fertilizers.add(f);
+            });
+        });
+        return fertilizers;
+
+    }
+
 
 
     //endregion
