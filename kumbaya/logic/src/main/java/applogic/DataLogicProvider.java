@@ -1,5 +1,6 @@
 package applogic;
 
+import datamodel.Fertilizer;
 import datamodel.Price;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
@@ -23,15 +24,14 @@ public class DataLogicProvider {
     public void connectToDB(){
         dataProvider.connectToDB();
     }
-    public void close(){
-        dataProvider.close();
-    }
+    public void close(){ dataProvider.close(); }
     //endregion
 
     //region Read
     public SoilMeasurement readSoilMeasurement(String userid){ return dataProvider.readSoilMeasurement(userid);}
     public List<Range> readRanges() { return dataProvider.readRanges();}
     public List<Price> readPrice(){ return dataProvider.readPrice();}
+    public List<Fertilizer> readFertilizer(String croptype) {return dataProvider.readFertilizer(croptype);}
     //endregion
 
     //region Update
