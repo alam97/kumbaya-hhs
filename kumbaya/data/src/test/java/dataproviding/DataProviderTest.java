@@ -1,5 +1,6 @@
 package dataproviding;
 
+import datamodel.Fertilizer;
 import datamodel.Price;
 import datamodel.Range;
 import datamodel.SoilMeasurement;
@@ -35,5 +36,14 @@ class DataProviderTest {
         List<Price> prices = dataProvider.readPrice();
         dataProvider.close();
         Assertions.assertEquals(2, prices.get(0).getId());
+    }
+
+    @Test
+    void readFertilizer(){
+        DataProvider dataProvider = new DataProvider();
+        dataProvider.connectToDB();
+        List<Fertilizer> fertilizers = dataProvider.readFertilizer("Soybean");
+        dataProvider.close();
+        Assertions.assertEquals("DAP", fertilizers.get(0).getName());
     }
 }
