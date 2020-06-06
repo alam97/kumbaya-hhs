@@ -9,19 +9,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.FertilizerSceneController">
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
-      <Text fill="#fff9f9" layoutX="377.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers">
+      <Text fill="#fff9f9" layoutX="290.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List of fertilizers">
                <font>
                  <Font size="60.0" />
              </font>
       </Text>
-            <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" onMouseClicked="#goToSweetPotato" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" onMouseClicked="#goToSweetPotato" onTouchPressed="#goToSweetPotato" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../images/box_sweet_potato.png" />
-               </ImageView>
-      <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="387.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../images/box_maize.png" />
-               </ImageView>
-      <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="708.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../images/box_soybeans.png" />
                </ImageView>
       <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/back_button.png" />
@@ -30,12 +24,6 @@
             <Image url="@../images/home_button.png" />
       </ImageView>
    <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="290.0" layoutY="578.0" onMouseClicked="#playSweetPotato" onTouchPressed="#playSweetPotato" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../images/speaker_button.png" />
-         </ImageView>
-   <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="613.0" layoutY="578.0" onMouseClicked="#playMaize" onTouchPressed="#playMaize" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../images/speaker_button.png" />
-         </ImageView>
-   <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="932.0" layoutY="575.0" onMouseClicked="#playSoybeans" onTouchPressed="#playSoybeans" pickOnBounds="true" preserveRatio="true">
                <Image url="@../images/speaker_button.png" />
          </ImageView>
 </AnchorPane>
