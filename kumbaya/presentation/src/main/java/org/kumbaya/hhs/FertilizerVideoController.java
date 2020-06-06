@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class FertilizerVideoController extends MainViewsSwitcher {
 
+
     @FXML
     private void goBackToFertilizers() throws IOException {
         App.setRoot("fertilizerPaneScene");

@@ -7,11 +7,10 @@ import java.io.IOException;
 
 public class FertilizerSceneController extends MainViewsSwitcher {
 
-    FertilizerVideoController fertilizerVideoController;
 
     @FXML
-    private void goToSweetPotatoVideo() throws IOException {
-        App.setRoot("fertilizerVideoScene");
+    private void goToSweetPotato() throws IOException {
+        App.setRoot("fertilizerChoiceScene");
     }
 
     @FXML
