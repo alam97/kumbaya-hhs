@@ -1,6 +1,7 @@
 package org.kumbaya.hhs;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
@@ -9,11 +10,26 @@ public class FertilizerSceneController extends MainViewsSwitcher {
 
 
     @FXML
-    private void goToSweetPotato() throws IOException {
-        App.setRoot("fertilizerChoiceScene");
+    private void goTo(String path, boolean SP, boolean MZ, boolean SB) throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+            FertilizerChoiceController controller = new FertilizerChoiceController(SP, MZ, SB);
+            loader.setController(controller);
+            App.setRoot(loader);
     }
 
+    @FXML
+    private void goToSweetPotato() throws IOException {
+       goTo("scenes/fertilizerChoiceScene.fxml", true, false, false);
+    }
 
+    @FXML
+    private void goToMaize() throws IOException {
+        goTo("scenes/fertilizerChoiceScene.fxml", false, true, false);
+    }
+
+    @FXML void goToSoybean() throws IOException {
+        goTo("scenes/fertilizerChoiceScene.fxml", false, false, true);
+    }
 
     @FXML
     private void playSweetPotato() {
