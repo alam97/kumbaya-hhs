@@ -1,6 +1,7 @@
 package org.kumbaya.hhs;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -27,6 +28,10 @@ public class FertilizerVideoController extends MainViewsSwitcher {
     private MediaView mv;
     private MediaPlayer mp;
     private Media me;
+    @FXML
+    private ImageView back;
+
+
 
     @FXML
     private void initialize() {
@@ -34,5 +39,8 @@ public class FertilizerVideoController extends MainViewsSwitcher {
         mp = new MediaPlayer(me);
         mv.setMediaPlayer(mp);
         mp.setAutoPlay(true);
+        back.setOnMouseClicked((event) -> {
+                try{goBackToFertilizers();}
+                catch (IOException e) {e.printStackTrace();}});
     }
 }
