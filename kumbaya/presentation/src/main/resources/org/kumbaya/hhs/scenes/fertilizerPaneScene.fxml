@@ -14,13 +14,13 @@
                  <Font size="60.0" />
              </font>
       </Text>
-            <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" onMouseClicked="#goToSweetPotato" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="66.0" layoutY="111.0" onMouseClicked="#goToSweetPotato" onTouchPressed="#goToSweetPotato" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../images/box_sweet_potato.png" />
                </ImageView>
-      <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="387.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="387.0" layoutY="111.0" onMouseClicked="#goToMaize" onTouchPressed="#goToMaize" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../images/box_maize.png" />
                </ImageView>
-      <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="708.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="708.0" layoutY="111.0" onMouseClicked="#goToSoybean" onTouchPressed="#goToSoybean" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/box_soybeans.png" />
                </ImageView>
       <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">

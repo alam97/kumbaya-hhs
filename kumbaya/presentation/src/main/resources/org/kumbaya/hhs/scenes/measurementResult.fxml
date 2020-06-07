@@ -3,7 +3,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -17,12 +16,13 @@
       </Text>
    <ImageView fx:id="result" fitHeight="544.0" fitWidth="794.0" layoutX="148.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-
-         <ImageView fx:id="back" layoutX="38.0" layoutY="23.0" fitHeight="57.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="back" fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../images/back_button.png" />
          </ImageView>
-         <ImageView fx:id="home"  fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="home" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@../images/home_button.png" />
          </ImageView>
-
+   <ImageView fx:id="fertilizer" fitHeight="125.0" fitWidth="134.0" layoutX="903.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../images/fertilizer_button.png" />
+   </ImageView>
    </AnchorPane>
