@@ -1,35 +1,38 @@
 package org.kumbaya.hhs;
 
 import javafx.fxml.FXML;
-import javafx.scene.text.Text;
-import javafx.scene.web.WebView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 import java.io.IOException;
 
 public class FertilizerVideoController extends MainViewsSwitcher {
 
 
+    private String path;
+    private String goBackScene;
+
+    public FertilizerVideoController(String path, String goBackScene) {
+        this.path = path;
+        this.goBackScene = goBackScene;
+    }
+
     @FXML
     private void goBackToFertilizers() throws IOException {
-        App.setRoot("fertilizerPaneScene");
+        App.setRoot(goBackScene);
     }
 
     @FXML
-    private String videoLink;
-
-    @FXML
-    public void setVideoLink(String videoLink) {
-        this.videoLink = videoLink;
-    }
-
-    @FXML
-    private WebView fertilizerWebView;
-    public Text  fertilizerVideoTitle;
+    private MediaView mv;
+    private MediaPlayer mp;
+    private Media me;
 
     @FXML
     private void initialize() {
-        fertilizerVideoTitle.setText("Sweet Potato");
-        fertilizerWebView.getEngine().loadContent("<iframe width='905' height='556' src='http://www.youtube.com/embed/MCnWi-OBtCg' />");
-        fertilizerWebView.setContextMenuEnabled(true);
+        me = new Media(this.getClass().getResource(path).toString());
+        mp = new MediaPlayer(me);
+        mv.setMediaPlayer(mp);
+        mp.setAutoPlay(true);
     }
 }

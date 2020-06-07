@@ -13,6 +13,8 @@ public class FertilizerSceneController extends MainViewsSwitcher {
         App.setRoot("fertilizerChoiceScene");
     }
 
+
+
     @FXML
     private void playSweetPotato() {
         AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Fertilizers_crops_Sweetpotato.mp3").toString());
