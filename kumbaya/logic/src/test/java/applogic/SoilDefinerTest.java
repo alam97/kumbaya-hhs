@@ -26,10 +26,8 @@ class SoilDefinerTest {
     @Test
     void readPrices(){
         DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
-        dataLogicProvider.connectToDB();
-        List<Price> prices = dataLogicProvider.readPrice();
-        dataLogicProvider.close();
-        Assertions.assertEquals(2, prices.get(0).getId());
+        Price price = dataLogicProvider.readPrice();
+        Assertions.assertEquals(2, price.getId());
     }
 
     @Test

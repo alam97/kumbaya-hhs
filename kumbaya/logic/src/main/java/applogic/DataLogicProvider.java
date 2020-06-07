@@ -15,9 +15,9 @@ public class DataLogicProvider {
     //endregion
 
     //region Constructors
-    public DataLogicProvider(DataProvider dataProvider) {
-        this.dataProvider = dataProvider;
-    }
+    //Dependency Injection Constructor
+    public DataLogicProvider(DataProvider dataProvider) { this.dataProvider = dataProvider; }
+    public DataLogicProvider() { this.dataProvider = new DataProvider();}
     //endregion
 
     //region Connect + Close to DB
@@ -30,8 +30,21 @@ public class DataLogicProvider {
     //region Read
     public SoilMeasurement readSoilMeasurement(String userid){ return dataProvider.readSoilMeasurement(userid);}
     public List<Range> readRanges() { return dataProvider.readRanges();}
-    public List<Price> readPrice(){ return dataProvider.readPrice();}
-    public List<Fertilizer> readFertilizer(String croptype) {return dataProvider.readFertilizer(croptype);}
+    public Price readPrice(){
+        connectToDB();
+        Price price = dataProvider.readPrice();
+        close();
+        return price;
+    }
+    public Double readPriceSweetPotato() { return readPrice().getSweetpotatoPrice();}
+    public Double readPriceMaize() { return readPrice().getMaizePrice();}
+    public Double readPriceSoybean() { return readPrice().getSoybeanPrice();}
+    public List<Fertilizer> readFertilizer(String croptype) {
+        connectToDB();
+        List<Fertilizer> fertilizers = dataProvider.readFertilizer(croptype);
+        close();
+        return fertilizers;
+    }
     //endregion
 
     //region Update
