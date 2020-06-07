@@ -14,11 +14,10 @@ public class SoilMeasurementResult {
     ImageView back;
     @FXML
     ImageView home;
-
+    @FXML
+    ImageView fertilizer;
 
     private String path;
-
-
 
    public SoilMeasurementResult(String path) {
         this.path = path;
@@ -27,7 +26,7 @@ public class SoilMeasurementResult {
     public void initialize() {
         result.setImage(new Image(getClass().getResource(path).toString()));
 
-        back.setOnMouseClicked((event) -> {    // lambda expression
+        back.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("soilmeasurementScene");
             }
@@ -35,7 +34,7 @@ public class SoilMeasurementResult {
                 e.printStackTrace();
             }
         });
-        back.setOnTouchPressed((event) -> {    // lambda expression
+        back.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("soilmeasurementScene");
             }
@@ -43,7 +42,7 @@ public class SoilMeasurementResult {
                 e.printStackTrace();
             }
         });
-        home.setOnMouseClicked((event) -> {    // lambda expression
+        home.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("mainScene");
             }
@@ -51,9 +50,26 @@ public class SoilMeasurementResult {
                 e.printStackTrace();
             }
         });
-        home.setOnTouchPressed((event) -> {    // lambda expression
+        home.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("mainScene");
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        });
+
+        fertilizer.setOnMouseClicked((event) -> {
+            try {
+                App.setRoot("fertilizerPaneScene");
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        });
+        fertilizer.setOnTouchPressed((event) -> {
+            try {
+                App.setRoot("fertilizerPaneScene");
             }
             catch (IOException e){
                 e.printStackTrace();
