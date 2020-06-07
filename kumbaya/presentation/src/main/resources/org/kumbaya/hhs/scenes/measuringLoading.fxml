@@ -20,7 +20,12 @@
    <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
               <Image url="@../images/home_button.png" />
          </ImageView>
-   <ImageView fitHeight="555.0" fitWidth="954.0" layoutX="51.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="429.0" fitWidth="804.0" layoutX="159.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
              <Image url="@../images/soil_measure.png" />
         </ImageView>
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="450.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/loading.gif" />
+      </image>
+   </ImageView>
    </AnchorPane>
