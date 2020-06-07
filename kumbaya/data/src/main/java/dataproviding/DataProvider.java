@@ -77,7 +77,7 @@ public class DataProvider {
         return ranges;
     }
 
-    public List<Price> readPrice(){
+    public Price readPrice(){
         List<Price> prices = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
         CosmosSyncContainer container = database.getContainer("Price");
@@ -89,8 +89,7 @@ public class DataProvider {
                 prices.add(p);
             });
         });
-        return prices;
-
+        return prices.get(0);
     }
 
 

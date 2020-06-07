@@ -33,9 +33,10 @@ class DataProviderTest {
     void readPrices(){
         DataProvider dataProvider = new DataProvider();
         dataProvider.connectToDB();
-        List<Price> prices = dataProvider.readPrice();
+        Price price = dataProvider.readPrice();
         dataProvider.close();
-        Assertions.assertEquals(2, prices.get(0).getId());
+        Assertions.assertEquals(2, price.getId());
+        //System.out.println(price.getMaizePrice());
     }
 
     @Test
