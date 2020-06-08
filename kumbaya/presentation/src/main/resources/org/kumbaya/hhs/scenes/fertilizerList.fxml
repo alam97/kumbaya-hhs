@@ -32,8 +32,8 @@
    <ScrollPane layoutX="436.0" layoutY="157.0">
                <TableView fx:id="table" prefHeight="497.0" prefWidth="559.0">
            <columns>
-             <TableColumn prefWidth="239.0" text="Image" />
-             <TableColumn prefWidth="302.0" text="Name" />
+             <TableColumn fx:id="image" prefWidth="239.0" text="Image" />
+             <TableColumn fx:id="name" prefWidth="302.0" text="Name" />
            </columns>
          </TableView>
          </ScrollPane>
