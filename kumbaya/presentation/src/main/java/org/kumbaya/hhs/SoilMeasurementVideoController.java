@@ -7,7 +7,7 @@ import javafx.scene.media.MediaView;
 
 import java.io.IOException;
 
-public class SoilMeasurementVideoController extends MainViewsSwitcher {
+public class SoilMeasurementVideoController {
 
     @FXML
     private MediaView mv;
@@ -16,7 +16,13 @@ public class SoilMeasurementVideoController extends MainViewsSwitcher {
 
     @FXML
     private void goBacktoSoilMeasurement() throws IOException {
+        mp.stop();
         App.setRoot("soilmeasurementScene");
+    }
+    @FXML
+    private void goBackMain() throws IOException{
+        mp.stop();
+        App.switchToMain();
     }
 
     @FXML

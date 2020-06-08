@@ -5,7 +5,7 @@ import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
 
-public class SoilMeasurementSceneController extends MainViewsSwitcher {
+public class SoilMeasurementSceneController extends MainChoice {
 
     @FXML
     private void goToVideo() throws IOException {
