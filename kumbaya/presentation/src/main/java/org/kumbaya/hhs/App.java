@@ -37,6 +37,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    static void switchToMain() throws IOException {
+        setRoot("mainScene");
+    }
 
     public static void main(String[] args) {
         launch();
