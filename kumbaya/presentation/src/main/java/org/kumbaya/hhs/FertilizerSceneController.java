@@ -6,8 +6,7 @@ import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
 
-public class FertilizerSceneController extends MainViewsSwitcher {
-
+public class FertilizerSceneController extends MainChoice {
 
     @FXML
     private void goTo(String path, boolean SP, boolean MZ, boolean SB) throws IOException {
@@ -18,16 +17,17 @@ public class FertilizerSceneController extends MainViewsSwitcher {
     }
 
     @FXML
-    private void goToSweetPotato() throws IOException {
+    public void goToSweetPotato() throws IOException {
        goTo("scenes/fertilizerChoiceScene.fxml", true, false, false);
     }
 
     @FXML
-    private void goToMaize() throws IOException {
+    public void goToMaize() throws IOException {
         goTo("scenes/fertilizerChoiceScene.fxml", false, true, false);
     }
 
-    @FXML void goToSoybean() throws IOException {
+    @FXML
+    public void goToSoybean() throws IOException {
         goTo("scenes/fertilizerChoiceScene.fxml", false, false, true);
     }
 
