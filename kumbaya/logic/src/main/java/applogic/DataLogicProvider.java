@@ -6,6 +6,8 @@ import datamodel.Range;
 import datamodel.SoilMeasurement;
 import dataproviding.DataProvider;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class DataLogicProvider {
@@ -17,6 +19,7 @@ public class DataLogicProvider {
     //region Constructors
     //Dependency Injection Constructor
     public DataLogicProvider(DataProvider dataProvider) { this.dataProvider = dataProvider; }
+    //Non-DI Constructor
     public DataLogicProvider() { this.dataProvider = new DataProvider();}
     //endregion
 
@@ -39,12 +42,37 @@ public class DataLogicProvider {
     public Double readPriceSweetPotato() { return readPrice().getSweetpotatoPrice();}
     public Double readPriceMaize() { return readPrice().getMaizePrice();}
     public Double readPriceSoybean() { return readPrice().getSoybeanPrice();}
-    public List<Fertilizer> readFertilizer(String croptype) {
+
+    public HashMap<String, ArrayList<String>> readFertilizers(){
         connectToDB();
-        List<Fertilizer> fertilizers = dataProvider.readFertilizer(croptype);
+        List<Fertilizer> all = dataProvider.readFertilizer();
         close();
-        return fertilizers;
+        ArrayList<String> sp = new ArrayList<>();
+        ArrayList<String> mz = new ArrayList<>();
+        ArrayList<String> sb = new ArrayList<>();
+        HashMap<String, ArrayList<String>> fertilizerMap = new HashMap<>();
+        for(Fertilizer f : all){
+            if (f.getCroptype().equals("Sweet Potato")){
+                sp.add(f.getName());
+            }
+            if (f.getCroptype().equals("Maize")){
+                mz.add(f.getName());
+            }
+            if (f.getCroptype().equals("Soybean")){
+                sb.add(f.getName());
+            }
+        }
+        fertilizerMap.put("Sweet Potato", sp);
+        fertilizerMap.put("Maize", mz);
+        fertilizerMap.put("Soybean", sb);
+        return fertilizerMap;
     }
+
+    public ArrayList<String> readSPFertilizer(){ return readFertilizers().get("Sweet Potato"); }
+    public ArrayList<String> readMZFertilizer(){ return readFertilizers().get("Maize"); }
+    public ArrayList<String> readSBFertilizer(){ return readFertilizers().get("Soybean"); }
+
+
     //endregion
 
     //region Update

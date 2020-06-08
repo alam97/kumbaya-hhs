@@ -1,17 +1,17 @@
 package applogic;
 
-import datamodel.Fertilizer;
 import datamodel.Price;
 import dataproviding.DataProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 
 class SoilDefinerTest {
 
     @Test
-    public void soilDefiningTest(){
+    void soilDefiningTest(){
         SoilDefiner soilDefiner = new SoilDefiner();
         String output = null;
         try {
@@ -31,11 +31,38 @@ class SoilDefinerTest {
     }
 
     @Test
-    void readFertilizers(){
+    void read(){
         DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
-        dataLogicProvider.connectToDB();
-        List<Fertilizer> fertilizers = dataLogicProvider.readFertilizer("Soybean");
-        dataLogicProvider.close();
-        Assertions.assertEquals("DAP", fertilizers.get(0).getName());
+        Map<String, ArrayList<String>> map = dataLogicProvider.readFertilizers();
+
+        Assertions.assertEquals(3, map.size());
+
+        //Iterator check
+        /*Iterator<Map.Entry<String, List<String>>> entries = map.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry<String, List<String>> entry = entries.next();
+            System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+        }*/
+    }
+
+    @Test
+    void readSP(){
+        DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
+        ArrayList<String> sp = dataLogicProvider.readSPFertilizer();
+        Assertions.assertTrue(sp.contains("Urea"));
+    }
+
+    @Test
+    void readSB(){
+        DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
+        ArrayList<String> sb = dataLogicProvider.readSBFertilizer();
+        Assertions.assertTrue(sb.contains("Compound S"));
+    }
+
+    @Test
+    void readMZ(){
+        DataLogicProvider dataLogicProvider = new DataLogicProvider(new DataProvider());
+        ArrayList<String> mz = dataLogicProvider.readMZFertilizer();
+        Assertions.assertTrue(mz.contains("DAP"));
     }
 }
