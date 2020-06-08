@@ -36,15 +36,14 @@ class DataProviderTest {
         Price price = dataProvider.readPrice();
         dataProvider.close();
         Assertions.assertEquals(2, price.getId());
-        //System.out.println(price.getMaizePrice());
     }
 
     @Test
     void readFertilizer(){
         DataProvider dataProvider = new DataProvider();
         dataProvider.connectToDB();
-        List<Fertilizer> fertilizers = dataProvider.readFertilizer("Soybean");
+        List<Fertilizer> fertilizers = dataProvider.readFertilizer();
         dataProvider.close();
-        Assertions.assertEquals("DAP", fertilizers.get(0).getName());
+        Assertions.assertEquals(7, fertilizers.size());
     }
 }

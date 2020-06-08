@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class DataProvider {
 
     //region Fields
-    ResourceBundle bundle = ResourceBundle.getBundle("databasekeys");
+    private ResourceBundle bundle = ResourceBundle.getBundle("databasekeys");
     private final String EndpointUri = bundle.getString("endpoint");
     private final String AuthKey = bundle.getString("key");
     private CosmosSyncClient client;
@@ -93,11 +93,11 @@ public class DataProvider {
     }
 
 
-    public List<Fertilizer> readFertilizer(String croptype){
+    public List<Fertilizer> readFertilizer(){
         List<Fertilizer> fertilizers = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
         CosmosSyncContainer container = database.getContainer("Fertilizer");
-        String query = "SELECT * FROM c WHERE c.croptype=" + "'" + croptype +"'";
+        String query = "SELECT * FROM c";
         Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems(query, queryOptions);
         responseIterator.forEachRemaining( response -> {
             response.results().forEach( item -> {
