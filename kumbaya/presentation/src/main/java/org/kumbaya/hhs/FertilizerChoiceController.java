@@ -1,6 +1,7 @@
 package org.kumbaya.hhs;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
@@ -8,7 +9,14 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 
 
-public class FertilizerChoiceController extends MainViewsSwitcher{
+public class FertilizerChoiceController {
+
+    private void goToVideo(String crop) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/fertilizerVideoScene.fxml"));
+        FertilizerVideoController fertilizerVideoController = new FertilizerVideoController("videos/HowToUseSensor.mp4", crop );
+        loader.setController(fertilizerVideoController);
+        App.setRoot(loader);
+    }
 
     @FXML
     private ImageView video;
@@ -29,11 +37,12 @@ public class FertilizerChoiceController extends MainViewsSwitcher{
     private boolean MZ;
     private boolean SB;
 
-    public FertilizerChoiceController(boolean SP, boolean MZ, boolean SB) {
+    FertilizerChoiceController(boolean SP, boolean MZ, boolean SB) {
         this.SP = SP;
         this.MZ = MZ;
         this.SB = SB;
     }
+
 
     public void initialize() {
 
@@ -51,7 +60,25 @@ public class FertilizerChoiceController extends MainViewsSwitcher{
             speaker_list.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Sweet potato_fertilizers_list_of_fertilizers.mp3").toString());
                 mp3.play();});
-        }
+            video.setOnMouseClicked((event) ->
+                    {
+                        try {
+                           goToVideo("SP");
+                        }
+                        catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    });
+            video.setOnTouchPressed((event) ->
+            {
+                         try {
+                            goToVideo("SP");
+                         }
+                         catch (IOException e){
+                             e.printStackTrace();
+                         }
+                    });
+            }
 
         if(MZ){
             crop.setText("Maize");
@@ -67,6 +94,24 @@ public class FertilizerChoiceController extends MainViewsSwitcher{
             speaker_list.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Maize_fertilizers_list_of_ferilizers.mp3").toString());
                 mp3.play();});
+            video.setOnMouseClicked((event) ->
+            {
+                try {
+                    goToVideo("MZ");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            video.setOnTouchPressed((event) ->
+            {
+                try {
+                    goToVideo("MZ");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
 
         }
 
@@ -84,9 +129,27 @@ public class FertilizerChoiceController extends MainViewsSwitcher{
             speaker_list.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Soybean_fertilizers_list_of_fertilizers.mp3").toString());
                 mp3.play();});
+            video.setOnMouseClicked((event) ->
+            {
+                try {
+                    goToVideo("SB");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            video.setOnTouchPressed((event) ->
+            {
+                try {
+                    goToVideo("SB");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
         }
 
-        back.setOnMouseClicked((event) -> {    // lambda expression
+        back.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("fertilizerPaneScene");
             }
@@ -94,7 +157,7 @@ public class FertilizerChoiceController extends MainViewsSwitcher{
                 e.printStackTrace();
             }
         });
-        back.setOnTouchPressed((event) -> {    // lambda expression
+        back.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("fertilizerPaneScene");
             }
@@ -102,17 +165,17 @@ public class FertilizerChoiceController extends MainViewsSwitcher{
                 e.printStackTrace();
             }
         });
-        home.setOnMouseClicked((event) -> {    // lambda expression
+        home.setOnMouseClicked((event) -> {
             try {
-                App.setRoot("mainScene");
+                App.switchToMain();
             }
             catch (IOException e){
                 e.printStackTrace();
             }
         });
-        home.setOnTouchPressed((event) -> {    // lambda expression
+        home.setOnTouchPressed((event) -> {
             try {
-                App.setRoot("mainScene");
+                App.switchToMain();
             }
             catch (IOException e){
                 e.printStackTrace();
