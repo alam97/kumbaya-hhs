@@ -8,20 +8,29 @@ import javafx.scene.media.MediaView;
 
 import java.io.IOException;
 
-public class FertilizerVideoController extends MainViewsSwitcher {
+public class FertilizerVideoController {
 
+    private FertilizerSceneController fertilizerSceneController = new FertilizerSceneController();
 
     private String path;
     private String goBackScene;
 
-    public FertilizerVideoController(String path, String goBackScene) {
+    FertilizerVideoController(String path, String goBackScene) {
         this.path = path;
         this.goBackScene = goBackScene;
     }
 
     @FXML
     private void goBackToFertilizers() throws IOException {
-        App.setRoot(goBackScene);
+        if(goBackScene.equals("SP")){
+            fertilizerSceneController.goToSweetPotato();
+        }
+        if (goBackScene.equals("MZ")){
+            fertilizerSceneController.goToMaize();
+        }
+        if (goBackScene.equals("SB")){
+            fertilizerSceneController.goToSoybean();
+        }
     }
 
     @FXML
@@ -30,6 +39,8 @@ public class FertilizerVideoController extends MainViewsSwitcher {
     private Media me;
     @FXML
     private ImageView back;
+    @FXML
+    private ImageView home;
 
 
 
@@ -40,7 +51,30 @@ public class FertilizerVideoController extends MainViewsSwitcher {
         mv.setMediaPlayer(mp);
         mp.setAutoPlay(true);
         back.setOnMouseClicked((event) -> {
+            mp.stop();
                 try{goBackToFertilizers();}
                 catch (IOException e) {e.printStackTrace();}});
+        back.setOnTouchPressed((event) -> {
+            mp.stop();
+            try{goBackToFertilizers();}
+            catch (IOException e) {e.printStackTrace();}});
+        home.setOnMouseClicked((event) -> {
+            mp.stop();
+            try {
+                App.switchToMain();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        });
+        home.setOnTouchPressed((event) -> {
+            mp.stop();
+            try {
+                App.switchToMain();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        });
     }
 }
