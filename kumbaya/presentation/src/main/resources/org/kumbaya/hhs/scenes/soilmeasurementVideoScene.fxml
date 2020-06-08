@@ -16,11 +16,11 @@
             <Font size="60.0" />
          </font>
       </Text>
-      <WebView fx:id="deviceVideoWebView" layoutX="131.0" layoutY="172.0" prefHeight="457.0" prefWidth="788.0" />
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
+      <WebView layoutX="131.0" layoutY="172.0" prefHeight="457.0" prefWidth="788.0" />
+      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onTouchPressed="#goBackMain" onMouseClicked="#goBackMain" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/home_button.png" />
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#goBacktoSoilMeasurement" onTouchPressed="#goBacktoSoilMeasurement" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onTouchPressed="#goBacktoSoilMeasurement" onMouseClicked="#goBacktoSoilMeasurement" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/back_button.png" />
       </ImageView>
    <MediaView fx:id="mv" fitHeight="457.0" fitWidth="788.0" layoutX="131.0" layoutY="162.0" />

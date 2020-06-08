@@ -23,10 +23,10 @@
       <ImageView fitHeight="572.0" fitWidth="300.0" layoutX="708.0" layoutY="111.0" onMouseClicked="#goToSoybean" onTouchPressed="#goToSoybean" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/box_soybeans.png" />
                </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="38.0" layoutY="23.0" onMouseClicked="#goToMain" onTouchPressed="#goToMain" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/back_button.png" />
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#switchtoMain" onTouchPressed="#switchtoMain" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" onMouseClicked="#goToMain" onTouchPressed="#goToMain" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/home_button.png" />
       </ImageView>
    <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="290.0" layoutY="578.0" onMouseClicked="#playSweetPotato" onTouchPressed="#playSweetPotato" pickOnBounds="true" preserveRatio="true">
