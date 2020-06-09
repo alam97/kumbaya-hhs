@@ -13,8 +13,15 @@ public class FertilizerChoiceController {
 
     private void goToVideo(String crop) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/fertilizerVideoScene.fxml"));
-        FertilizerVideoController fertilizerVideoController = new FertilizerVideoController("videos/HowToUseSensor.mp4", crop );
+        FertilizerVideoController fertilizerVideoController = new FertilizerVideoController(crop );
         loader.setController(fertilizerVideoController);
+        App.setRoot(loader);
+    }
+
+    private void goToList(String image, String list, String crop) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/fertilizerList.fxml"));
+        FertilizerListController fertilizerListController = new FertilizerListController(image, list, crop);
+        loader.setController(fertilizerListController);
         App.setRoot(loader);
     }
 
@@ -78,6 +85,24 @@ public class FertilizerChoiceController {
                              e.printStackTrace();
                          }
                     });
+            list.setOnMouseClicked((event) ->
+            {
+                try {
+                    goToList("images/prices_box_sweet_potato.png", "images/prices_box_sweet_potato.png", "SP");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            list.setOnTouchPressed((event) ->
+            {
+                try {
+                    goToList("images/prices_box_sweet_potato.png", "images/prices_box_sweet_potato.png", "SP");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
             }
 
         if(MZ){
@@ -107,6 +132,24 @@ public class FertilizerChoiceController {
             {
                 try {
                     goToVideo("MZ");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            list.setOnMouseClicked((event) ->
+            {
+                try {
+                    goToList("images/prices_box_maize.png", "images/prices_box_maize.png", "MZ");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            list.setOnTouchPressed((event) ->
+            {
+                try {
+                    goToList("images/prices_box_maize.png", "images/prices_box_maize.png", "MZ");
                 }
                 catch (IOException e){
                     e.printStackTrace();
@@ -142,6 +185,24 @@ public class FertilizerChoiceController {
             {
                 try {
                     goToVideo("SB");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            list.setOnMouseClicked((event) ->
+            {
+                try {
+                    goToList("images/prices_box_soybeans.png", "images/prices_box_soybeans.png", "SB");
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+            });
+            list.setOnTouchPressed((event) ->
+            {
+                try {
+                    goToList("images/prices_box_soybeans.png", "images/prices_box_soybeans.png", "SB");
                 }
                 catch (IOException e){
                     e.printStackTrace();
