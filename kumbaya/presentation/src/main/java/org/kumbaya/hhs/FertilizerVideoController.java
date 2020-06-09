@@ -2,22 +2,21 @@ package org.kumbaya.hhs;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-
+import javafx.scene.web.WebView;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class FertilizerVideoController {
 
     private FertilizerSceneController fertilizerSceneController = new FertilizerSceneController();
+    private ResourceBundle bundle = ResourceBundle.getBundle("org/kumbaya/hhs/videos/cropvideos");
 
-    private String path;
+    private String key;
     private String goBackScene;
 
-    FertilizerVideoController(String path, String goBackScene) {
-        this.path = path;
-        this.goBackScene = goBackScene;
+    FertilizerVideoController(String key) {
+        this.key = bundle.getString(key);
+        this.goBackScene = key;
     }
 
     @FXML
@@ -34,9 +33,7 @@ public class FertilizerVideoController {
     }
 
     @FXML
-    private MediaView mv;
-    private MediaPlayer mp;
-    private Media me;
+    private WebView webview;
     @FXML
     private ImageView back;
     @FXML
@@ -46,20 +43,17 @@ public class FertilizerVideoController {
 
     @FXML
     private void initialize() {
-        me = new Media(this.getClass().getResource(path).toString());
-        mp = new MediaPlayer(me);
-        mv.setMediaPlayer(mp);
-        mp.setAutoPlay(true);
+
+        webview.getEngine().loadContent(key);
+        webview.setContextMenuEnabled(true);
+
         back.setOnMouseClicked((event) -> {
-            mp.stop();
                 try{goBackToFertilizers();}
                 catch (IOException e) {e.printStackTrace();}});
         back.setOnTouchPressed((event) -> {
-            mp.stop();
             try{goBackToFertilizers();}
             catch (IOException e) {e.printStackTrace();}});
         home.setOnMouseClicked((event) -> {
-            mp.stop();
             try {
                 App.switchToMain();
             }
@@ -68,7 +62,6 @@ public class FertilizerVideoController {
             }
         });
         home.setOnTouchPressed((event) -> {
-            mp.stop();
             try {
                 App.switchToMain();
             }
