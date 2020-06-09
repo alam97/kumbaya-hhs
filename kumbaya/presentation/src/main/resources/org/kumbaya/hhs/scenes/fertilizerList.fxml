@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,18 +20,6 @@
       <ImageView fx:id="home" fitHeight="57.0" fitWidth="70.0" layoutX="966.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/home_button.png" />
       </ImageView>
-   <ImageView fx:id="cropbox" fitHeight="529.0" fitWidth="363.0" layoutX="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../images/box_sweet_potato.png" />
-         </ImageView>
-   <ImageView fx:id="speaker" fitHeight="60.0" fitWidth="60.0" layoutX="287.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
-               <Image url="@../images/speaker_button.png" />
-        </ImageView>
-   <ScrollPane layoutX="436.0" layoutY="157.0">
-               <TableView fx:id="table" prefHeight="497.0" prefWidth="559.0">
-           <columns>
-             <TableColumn fx:id="image" prefWidth="239.0" text="Image" />
-             <TableColumn fx:id="name" prefWidth="302.0" text="Name" />
-           </columns>
-         </TableView>
-         </ScrollPane>
+   <ImageView fx:id="cropbox" fitHeight="529.0" fitWidth="363.0" layoutX="71.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fx:id="fertilizerbox" fitHeight="529.0" fitWidth="572.0" layoutX="379.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
 </AnchorPane>
