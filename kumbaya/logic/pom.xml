@@ -11,6 +11,9 @@
 
     <artifactId>logic</artifactId>
     <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <build>
         <plugins>
 
@@ -35,7 +38,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
+            <version>5.5.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

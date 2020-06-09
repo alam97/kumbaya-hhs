@@ -12,6 +12,10 @@
     <artifactId>data</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
         <plugins>
 
@@ -31,11 +35,6 @@
         </plugins>
     </build>
 <dependencies>
-   <!-- <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-cosmos</artifactId>
-        <version>4.0.1-beta.1</version>
-    </dependency>-->
     <dependency>
         <groupId>javax.json</groupId>
         <artifactId>javax.json-api</artifactId>
@@ -54,7 +53,7 @@
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>RELEASE</version>
+        <version>5.5.0</version>
         <scope>test</scope>
     </dependency>
     <dependency>
