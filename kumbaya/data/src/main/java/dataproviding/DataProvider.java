@@ -49,7 +49,7 @@ public class DataProvider {
     public SoilMeasurement readSoilMeasurement(String userid) {
         List<SoilMeasurement> measurements = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
-        CosmosSyncContainer container = database.getContainer("SoilMeasurement");
+        CosmosSyncContainer container = database.getContainer(bundle.getString("soilmeasurement"));
         String query = "SELECT TOP 1 * FROM c WHERE c.userid=" + "'" + userid +"'" + " AND c.measureDate <= GetCurrentDateTime() ORDER BY c.measureDate DESC";
         Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems(query, queryOptions);
         responseIterator.forEachRemaining( response -> {
@@ -64,7 +64,7 @@ public class DataProvider {
     public List<Range> readRanges() {
         List<Range> ranges = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
-        CosmosSyncContainer container = database.getContainer("Range");
+        CosmosSyncContainer container = database.getContainer(bundle.getString("range"));
 
         Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems("SELECT * FROM c", queryOptions);
 
@@ -80,7 +80,7 @@ public class DataProvider {
     public Price readPrice(){
         List<Price> prices = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
-        CosmosSyncContainer container = database.getContainer("Price");
+        CosmosSyncContainer container = database.getContainer(bundle.getString("price"));
         String query = "SELECT TOP 1 * FROM c WHERE c.updateDate <= GetCurrentDateTime() ORDER BY c.updateDate DESC";
         Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems(query, queryOptions);
         responseIterator.forEachRemaining( response -> {
@@ -96,7 +96,7 @@ public class DataProvider {
     public List<Fertilizer> readFertilizer(){
         List<Fertilizer> fertilizers = new ArrayList<>();
         queryOptions.populateQueryMetrics(true);
-        CosmosSyncContainer container = database.getContainer("Fertilizer");
+        CosmosSyncContainer container = database.getContainer(bundle.getString("fertilizer"));
         String query = "SELECT * FROM c";
         Iterator<FeedResponse<CosmosItemProperties>> responseIterator = container.queryItems(query, queryOptions);
         responseIterator.forEachRemaining( response -> {
@@ -116,7 +116,7 @@ public class DataProvider {
     //region Update
     public void updateSoilType(SoilMeasurement soilMeasurement) throws Exception{
         queryOptions.populateQueryMetrics(true);
-        CosmosSyncContainer container = database.getContainer("SoilMeasurement");
+        CosmosSyncContainer container = database.getContainer(bundle.getString("soilmeasurement"));
         container.upsertItem(soilMeasurement);
     }
     //endregion
