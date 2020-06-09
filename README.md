@@ -109,7 +109,76 @@ The latest soil measurement as well as min and max ranges are stored in the data
 It is possible to define the type of the soil (low, medium or high fertility) based on the ranges of the pH and NPK parameters. The research done by the Kumbaya HHS team prove that pH is the parameter that holds greater importance when deciding on the soil type. Since N, P, K are measured within the same unit, it is reasonable to calculate the harmonic mean of that subset. Then, to ultimately decide the type of soil, a weighted mean of the subsets should be used, giving the prevalent weight to the pH. Calculating minimum and maximum possible values for every soil type, there are left 3 sets of ranges the result of the device’s measurement can be classified into, naming soil Low, Medium or High fertility type.
 
 Logic layer class ```SoilDefiner``` is responsible for defining the soil based on the parameters from the Soil Measurement. The method ```defineSoil``` implements the algorithm that uses weighted and harmonic means. 
->
+
+```java
+ double harmonic_mean = 3 / (1 / soilMeasurement.getkParam() + 1 / soilMeasurement.getnParam() + 1 / soilMeasurement.getpParam());
+        double weighted_mean = (pH_weight * soilMeasurement.getpHParam() + npk_weight * harmonic_mean) / (pH_weight + npk_weight);
+```
+The possible solutions are put into a ```List``` and filtered if there exists more than one
+
+```java
+     if (possibleSolutions.size() == 1) {
+            soilMeasurement.setSoiltype(possibleSolutions.get(0).getSoiltype());
+        } else if (possibleSolutions.size() > 1) {
+            for (Range range : possibleSolutions) {
+                if (range.getMin() == weighted_mean) {
+                    soilMeasurement.setSoiltype(range.getSoiltype());
+                }
+            }
+
+        }
+        else throw new Exception();
+```
+Then the update method is called
+
+```java
+        dataLogicProvider.updateSoilType(soilMeasurement);
+```
+Because the communication with the database requires time, in order not to confuse the potential user about the screen not changing into the result of their soil analysis, a ```MeasurementPreloader``` class was implemented in the Presentation layer using ```threads``` and methods ```run``` to retrieve the data and ```Platform.runLater``` to switch the screen to an appropriate result image.
+
+## Videos
+Educational videos were implemented using ```MediaView``` and ```WebView``` types from the [JavaFX documentation](https://docs.oracle.com/javase/8/javafx/api/toc.htm). The mp4 file of the animation about how to use the sensor of the IoT device prepared by the Kumbaya HHS team is included in the ```resources/videos```, therefore ```MediaView``` was implemented. 
+
+```java
+    @FXML
+    private MediaView mv;
+    private MediaPlayer mp;
+    private Media me;
+    
+    @FXML
+    private void initialize() {
+        me = new Media(this.getClass().getResource("videos/HowToUseSensor.mp4").toString());
+        mp = new MediaPlayer(me);
+        mv.setMediaPlayer(mp);
+        mp.setAutoPlay(true);
+        }
+```
+The source of educational videos about fertilizers was YouTube, therefore ```WebView``` was implemented. The embed links to each YouTube video is stored in the resource bundle ```cropvideos``` 
+
+```java
+private ResourceBundle bundle = ResourceBundle.getBundle("org/kumbaya/hhs/videos/cropvideos");
+```
+and chosen appropriately depending on which crop the user chooses, the key is the argument of the constructor of ```FertilizerVideoController```.
+
+```java
+ FertilizerVideoController(String key) {
+        this.key = bundle.getString(key);
+        this.goBackScene = key;
+    }
+```
+The initialize() method puts appropriate video into the ```webView``` after the ```FXMLLoader``` is set as root.
+```java
+ @FXML
+    private void initialize() {
+
+        webview.getEngine().loadContent(key);
+        webview.setContextMenuEnabled(true);
+       ...
+    }
+```
+
+## Prices
+As of 12/06/2020, the Prices feature is not implemented. The database contains dummy data of prices for each crop and the ```readPrice``` method is implemented in Data later's ```DataProvider```.
 
 ## Tests
 The project uses [JUnit](https://junit.org/junit5/) for unit tests.
