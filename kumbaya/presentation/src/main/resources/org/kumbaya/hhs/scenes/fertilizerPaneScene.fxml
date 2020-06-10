@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="1049.0" style="-fx-background-color: #e5b674;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kumbaya.hhs.FertilizerSceneController">
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9a32e" height="103.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" width="1049.0" />
-      <Text fill="#fff9f9" layoutX="377.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers">
+      <Text fill="#fff9f9" layoutX="82.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fertilizers - crops" textAlignment="CENTER" wrappingWidth="866.96484375">
                <font>
                  <Font size="60.0" />
              </font>
