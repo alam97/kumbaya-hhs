@@ -10,15 +10,15 @@ public class FertilizerSceneController extends MainChoice {
 
     @FXML
     private void goTo(String path, boolean SP, boolean MZ, boolean SB) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-            FertilizerChoiceController controller = new FertilizerChoiceController(SP, MZ, SB);
-            loader.setController(controller);
-            App.setRoot(loader);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        FertilizerChoiceController controller = new FertilizerChoiceController(SP, MZ, SB);
+        loader.setController(controller);
+        App.setRoot(loader);
     }
 
     @FXML
     public void goToSweetPotato() throws IOException {
-       goTo("scenes/fertilizerChoiceScene.fxml", true, false, false);
+        goTo("scenes/fertilizerChoiceScene.fxml", true, false, false);
     }
 
     @FXML

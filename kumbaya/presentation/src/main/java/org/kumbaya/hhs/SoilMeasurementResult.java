@@ -9,17 +9,17 @@ import java.io.IOException;
 public class SoilMeasurementResult {
 
     @FXML
-    ImageView result;
+    private ImageView result;
     @FXML
-    ImageView back;
+    private ImageView back;
     @FXML
-    ImageView home;
+    private ImageView home;
     @FXML
-    ImageView fertilizer;
+    private ImageView fertilizer;
 
     private String path;
 
-   public SoilMeasurementResult(String path) {
+    SoilMeasurementResult(String path) {
         this.path = path;
     }
 
@@ -29,32 +29,28 @@ public class SoilMeasurementResult {
         back.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("soilmeasurementScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         back.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("soilmeasurementScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         home.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("mainScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         home.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("mainScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
@@ -62,16 +58,14 @@ public class SoilMeasurementResult {
         fertilizer.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("fertilizerPaneScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         fertilizer.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("fertilizerPaneScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });

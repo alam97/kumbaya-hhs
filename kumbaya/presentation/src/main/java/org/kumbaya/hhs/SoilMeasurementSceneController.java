@@ -13,7 +13,7 @@ public class SoilMeasurementSceneController extends MainChoice {
     }
 
     @FXML
-    private void goToMeasurement() throws IOException{
+    private void goToMeasurement() throws IOException {
         App.setRoot("measuringLoading");
     }
 

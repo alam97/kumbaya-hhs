@@ -13,7 +13,7 @@ public class FertilizerChoiceController {
 
     private void goToVideo(String crop) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("scenes/fertilizerVideoScene.fxml"));
-        FertilizerVideoController fertilizerVideoController = new FertilizerVideoController(crop );
+        FertilizerVideoController fertilizerVideoController = new FertilizerVideoController(crop);
         loader.setController(fertilizerVideoController);
         App.setRoot(loader);
     }
@@ -34,7 +34,7 @@ public class FertilizerChoiceController {
     @FXML
     private ImageView list;
     @FXML
-    private  ImageView speaker_video;
+    private ImageView speaker_video;
     @FXML
     private ImageView speaker_list;
     @FXML
@@ -53,158 +53,146 @@ public class FertilizerChoiceController {
 
     public void initialize() {
 
-        if(SP){
+        if (SP) {
             crop.setText("Sweet Potato");
             speaker_video.setOnMouseClicked((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Sweet potato_fertilizers_Video.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_video.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Sweet potato_fertilizers_Video.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_list.setOnMouseClicked((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Sweet potato_fertilizers_list_of_fertilizers.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_list.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Sweet potato_fertilizers_list_of_fertilizers.mp3").toString());
-                mp3.play();});
-            video.setOnMouseClicked((event) ->
-                    {
-                        try {
-                           goToVideo("SP");
-                        }
-                        catch (IOException e){
-                            e.printStackTrace();
-                        }
-                    });
-            video.setOnTouchPressed((event) ->
-            {
-                         try {
-                            goToVideo("SP");
-                         }
-                         catch (IOException e){
-                             e.printStackTrace();
-                         }
-                    });
-            list.setOnMouseClicked((event) ->
-            {
+                mp3.play();
+            });
+            video.setOnMouseClicked((event) -> {
                 try {
-                    goToList("images/prices_box_sweet_potato.png", "images/prices_box_sweet_potato.png", "SP");
-                }
-                catch (IOException e){
+                    goToVideo("SP");
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            list.setOnTouchPressed((event) ->
-            {
+            video.setOnTouchPressed((event) -> {
                 try {
-                    goToList("images/prices_box_sweet_potato.png", "images/prices_box_sweet_potato.png", "SP");
-                }
-                catch (IOException e){
+                    goToVideo("SP");
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            }
+            list.setOnMouseClicked((event) -> {
+                try {
+                    goToList("images/prices_box_sweet_potato.png", "images/list of fertilizers sweet potato.png", "SP");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            list.setOnTouchPressed((event) -> {
+                try {
+                    goToList("images/prices_box_sweet_potato.png", "images/list of fertilizers sweet potato.png", "SP");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
 
-        if(MZ){
+        if (MZ) {
             crop.setText("Maize");
             speaker_video.setOnMouseClicked((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Maize_fertilizers_Video.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_video.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Maize_fertilizers_Video.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_list.setOnMouseClicked((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Maize_fertilizers_list_of_ferilizers.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_list.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Maize_fertilizers_list_of_ferilizers.mp3").toString());
-                mp3.play();});
-            video.setOnMouseClicked((event) ->
-            {
+                mp3.play();
+            });
+            video.setOnMouseClicked((event) -> {
                 try {
                     goToVideo("MZ");
-                }
-                catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            video.setOnTouchPressed((event) ->
-            {
+            video.setOnTouchPressed((event) -> {
                 try {
                     goToVideo("MZ");
-                }
-                catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            list.setOnMouseClicked((event) ->
-            {
+            list.setOnMouseClicked((event) -> {
                 try {
-                    goToList("images/prices_box_maize.png", "images/prices_box_maize.png", "MZ");
-                }
-                catch (IOException e){
+                    goToList("images/prices_box_maize.png", "images/list of fertilizers maize.png", "MZ");
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            list.setOnTouchPressed((event) ->
-            {
+            list.setOnTouchPressed((event) -> {
                 try {
-                    goToList("images/prices_box_maize.png", "images/prices_box_maize.png", "MZ");
-                }
-                catch (IOException e){
+                    goToList("images/prices_box_maize.png", "images/list of fertilizers maize.png", "MZ");
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
 
         }
 
-        if(SB){
+        if (SB) {
             crop.setText("Soybean");
             speaker_video.setOnMouseClicked((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Soybean_ferilizers_Video.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_video.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Soybean_ferilizers_Video.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_list.setOnMouseClicked((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Soybean_fertilizers_list_of_fertilizers.mp3").toString());
-                mp3.play();});
+                mp3.play();
+            });
             speaker_list.setOnTouchPressed((event) -> {
                 AudioClip mp3 = new AudioClip(this.getClass().getResource("voice_feedback/Screen Soybean_fertilizers_list_of_fertilizers.mp3").toString());
-                mp3.play();});
-            video.setOnMouseClicked((event) ->
-            {
+                mp3.play();
+            });
+            video.setOnMouseClicked((event) -> {
                 try {
                     goToVideo("SB");
-                }
-                catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            video.setOnTouchPressed((event) ->
-            {
+            video.setOnTouchPressed((event) -> {
                 try {
                     goToVideo("SB");
-                }
-                catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            list.setOnMouseClicked((event) ->
-            {
+            list.setOnMouseClicked((event) -> {
                 try {
-                    goToList("images/prices_box_soybeans.png", "images/prices_box_soybeans.png", "SB");
-                }
-                catch (IOException e){
+                    goToList("images/prices_box_soybeans.png", "images/list of fertilizers Soy beans.png", "SB");
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            list.setOnTouchPressed((event) ->
-            {
+            list.setOnTouchPressed((event) -> {
                 try {
-                    goToList("images/prices_box_soybeans.png", "images/prices_box_soybeans.png", "SB");
-                }
-                catch (IOException e){
+                    goToList("images/prices_box_soybeans.png", "images/list of fertilizers Soy beans.png", "SB");
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
@@ -213,32 +201,28 @@ public class FertilizerChoiceController {
         back.setOnMouseClicked((event) -> {
             try {
                 App.setRoot("fertilizerPaneScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         back.setOnTouchPressed((event) -> {
             try {
                 App.setRoot("fertilizerPaneScene");
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         home.setOnMouseClicked((event) -> {
             try {
                 App.switchToMain();
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
         home.setOnTouchPressed((event) -> {
             try {
                 App.switchToMain();
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });

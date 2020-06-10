@@ -18,7 +18,7 @@ public class MainSceneController {
     }
 
     @FXML
-    private void switchToSoilMeasurement() throws IOException{
+    private void switchToSoilMeasurement() throws IOException {
         App.setRoot("soilmeasurementScene");
     }
 

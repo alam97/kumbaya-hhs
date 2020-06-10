@@ -20,7 +20,7 @@ public class SoilMeasurementVideoController {
         App.setRoot("soilmeasurementScene");
     }
     @FXML
-    private void goBackMain() throws IOException{
+    private void goBackMain() throws IOException {
         mp.stop();
         App.switchToMain();
     }
@@ -31,6 +31,6 @@ public class SoilMeasurementVideoController {
         mp = new MediaPlayer(me);
         mv.setMediaPlayer(mp);
         mp.setAutoPlay(true);
-        }
-
     }
+
+}
