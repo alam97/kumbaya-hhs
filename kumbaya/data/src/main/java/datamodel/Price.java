@@ -1,7 +1,5 @@
 package datamodel;
 
-import java.util.Date;
-
 public class Price {
 
 
@@ -27,19 +25,15 @@ public class Price {
     public int getId() {
         return id;
     }
-
     public String getUpdateDate() {
         return updateDate;
     }
-
     public double getSweetpotatoPrice() {
         return sweetpotatoPrice;
     }
-
     public double getMaizePrice() {
         return maizePrice;
     }
-
     public double getSoybeanPrice() {
         return soybeanPrice;
     }
@@ -49,19 +43,15 @@ public class Price {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
     }
-
     public void setSweetpotatoPrice(double sweetpotatoPrice) {
         this.sweetpotatoPrice = sweetpotatoPrice;
     }
-
     public void setMaizePrice(double maizePrice) {
         this.maizePrice = maizePrice;
     }
-
     public void setSoybeanPrice(double soybeanPrice) {
         this.soybeanPrice = soybeanPrice;
     }

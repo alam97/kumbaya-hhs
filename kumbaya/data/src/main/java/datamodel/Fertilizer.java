@@ -21,11 +21,9 @@ public class Fertilizer {
     public int getId() {
         return id;
     }
-
     public String getCroptype() {
         return croptype;
     }
-
     public String getName() {
         return name;
     }
@@ -37,11 +35,9 @@ public class Fertilizer {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setCroptype(String croptype) {
         this.croptype = croptype;
     }
-
     public void setName(String name) {
         this.name = name;
     }

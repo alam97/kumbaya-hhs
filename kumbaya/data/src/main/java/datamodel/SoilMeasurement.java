@@ -41,31 +41,24 @@ public class SoilMeasurement {
     public String getId() {
         return id;
     }
-
     public String getUserid() {
         return userid;
     }
-
     public String getMeasureDate() {
         return measureDate;
     }
-
     public String getSoiltype() {
         return soiltype;
     }
-
     public double getnParam() {
         return nParam;
     }
-
     public double getpParam() {
         return pParam;
     }
-
     public double getkParam() {
         return kParam;
     }
-
     public double getpHParam() {
         return pHParam;
     }
@@ -76,33 +69,27 @@ public class SoilMeasurement {
     public void setId(String id) {
         this.id = id;
     }
-
     public void setUserid(String userid) {
         this.userid = userid;
     }
-
     public void setMeasureDate(String measureDate) {
         this.measureDate = measureDate;
     }
-
     public void setSoiltype(String soiltype) {
         this.soiltype = soiltype;
     }
-
     public void setnParam(double nParam) {
         this.nParam = nParam;
     }
-
     public void setpParam(double pParam) {
         this.pParam = pParam;
     }
-
     public void setkParam(double kParam) {
         this.kParam = kParam;
     }
-
     public void setpHParam(double pHParam) {
         this.pHParam = pHParam;
     }
+
     //endregion
 }

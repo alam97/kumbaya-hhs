@@ -23,15 +23,12 @@ public class Range {
     public int getId() {
         return id;
     }
-
     public String getSoiltype() {
         return soiltype;
     }
-
     public double getMin() {
         return min;
     }
-
     public double getMax() {
         return max;
     }
@@ -41,15 +38,12 @@ public class Range {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setSoiltype(String soiltype) {
         this.soiltype = soiltype;
     }
-
     public void setMin(double min) {
         this.min = min;
     }
-
     public void setMax(double max) {
         this.max = max;
     }
