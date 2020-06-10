@@ -178,7 +178,7 @@ The initialize() method puts appropriate video into the ```webView``` after the 
 ```
 
 ## Prices
-As of 12/06/2020, the Prices feature is not implemented. The database contains dummy data of prices for each crop and the ```readPrice``` method is implemented in Data later's ```DataProvider```.
+As of 12/06/2020, the Prices feature is not implemented. The database contains dummy data of prices for each crop and the ```readPrice``` method is implemented in Data layer's ```DataProvider```.
 
 ## Tests
 The project uses [JUnit](https://junit.org/junit5/) for unit tests.
