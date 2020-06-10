@@ -1,6 +1,6 @@
 # kumbaya-hhs
 
-This is a software project created for [Kumbaya Inc](https://kumbaya.co/) during the 2020 Summer European Project Semester at The Hague University of Applied Sciences taking place from February to July 2020. It is compatible with the IoT device created by the same students as a second part of the solution for the company. The purpose of this software is to combine practical and educational platform for farmers in Malawi, Africa.
+This is a software project created for [Kumbaya Inc](https://kumbaya.co/) during the 2020 Summer European Project Semester at [The Hague University of Applied Sciences](https://www.thehagueuniversity.com/) taking place from February to July 2020. It is compatible with the IoT device created by the same students as a second part of the solution for the company. The purpose of this software is to combine practical and educational platform for farmers in Malawi, Africa.
 >
 - Practical: Defining the type of soil the farmer has, providing prices at which the farmer can sell their crop
 - Educational: Videos explaining how to use the IoT device, how to use fertilizers and a list of fertilizers for crops suitable for Malawi 
