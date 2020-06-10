@@ -44,7 +44,7 @@ The Data layer contains a resouce bundle ```databasekeys``` with endpoint and UR
 
 Inside the ```DataProvider``` class, the bundle is defined:
 ```java
-    private ResourceBundle bundle = ResourceBundle.getBundle("databasekeys");
+    private final static ResourceBundle bundle = ResourceBundle.getBundle("databasekeys");
 ```
 
 The methods ```connectToDB``` and ```close``` are designed to establish and close the connection respectively.
@@ -52,13 +52,13 @@ The connection is established by creating a ```CosmosSyncClient``` instance and 
 
 ```java
 client = new CosmosClientBuilder()
-                .endpoint(EndpointUri)
-                .key(AuthKey)
+                .endpoint(bundle.getString("endpoint"))
+                .key(bundle.getString("key"))
                 .connectionPolicy(defaultPolicy)
                 .consistencyLevel(ConsistencyLevel.EVENTUAL)
                 .buildSyncClient();
-                
-database = client.getDatabase(databaseName);
+
+        database = client.getDatabase(bundle.getString("databaseName"));
 ```
 The connection is closed using the ```close``` method for the ```CosmosSyncClient```.
 
@@ -112,7 +112,7 @@ Logic layer class ```SoilDefiner``` is responsible for defining the soil based o
 
 ```java
  double harmonic_mean = 3 / (1 / soilMeasurement.getkParam() + 1 / soilMeasurement.getnParam() + 1 / soilMeasurement.getpParam());
-        double weighted_mean = (pH_weight * soilMeasurement.getpHParam() + npk_weight * harmonic_mean) / (pH_weight + npk_weight);
+ double weighted_mean = (pH_weight * soilMeasurement.getpHParam() + npk_weight * harmonic_mean) / (pH_weight + npk_weight);
 ```
 The possible solutions are put into a ```List``` and filtered if there exists more than one
 
@@ -156,7 +156,7 @@ Educational videos were implemented using ```MediaView``` and ```WebView``` type
 The source of educational videos about fertilizers was YouTube, therefore ```WebView``` was implemented. The embed links to each YouTube video is stored in the resource bundle ```cropvideos``` 
 
 ```java
-private ResourceBundle bundle = ResourceBundle.getBundle("org/kumbaya/hhs/videos/cropvideos");
+private final static ResourceBundle bundle = ResourceBundle.getBundle("org/kumbaya/hhs/videos/cropvideos");
 ```
 and chosen appropriately depending on which crop the user chooses, the key is the argument of the constructor of ```FertilizerVideoController```.
 
@@ -170,7 +170,6 @@ The initialize() method puts appropriate video into the ```webView``` after the 
 ```java
  @FXML
     private void initialize() {
-
         webview.getEngine().loadContent(key);
         webview.setContextMenuEnabled(true);
        ...
